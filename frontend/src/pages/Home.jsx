@@ -7,17 +7,12 @@ import {
   Grid,
   Paper,
   Container,
-  AppBar,
-  Toolbar,
   IconButton,
 } from "@mui/material";
-import BedtimeIcon from "@mui/icons-material/Bedtime";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
 import KeyboardAltOutlinedIcon from "@mui/icons-material/KeyboardAltOutlined";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import MicNoneIcon from "@mui/icons-material/MicNone";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 export const Home = () => {
   const navigate = useNavigate();

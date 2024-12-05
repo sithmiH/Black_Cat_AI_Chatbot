@@ -11,7 +11,10 @@ import {
   Paper,
   Divider,
 } from "@mui/material";
-import { Menu as MenuIcon, Brightness4 as DarkModeIcon } from "@mui/icons-material";
+import {
+  Menu as MenuIcon,
+  Brightness4 as DarkModeIcon,
+} from "@mui/icons-material";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Prompt from "../components/Prompt";
@@ -26,9 +29,6 @@ const ChatScreen = () => {
         bgcolor: "#f9f9f9",
       }}
     >
-      {/* Header */}
-      < Header />
-
       {/* Main Content */}
       <Box
         sx={{
@@ -84,8 +84,7 @@ const ChatScreen = () => {
               2. Divide both sides by 3:
             </Typography>
             <Typography variant="body2" sx={{ ml: 2 }}>
-              x = 12/3 <br />
-              x = 4
+              x = 12/3 <br />x = 4
             </Typography>
             <Typography variant="body1" sx={{ mt: 2, fontWeight: "bold" }}>
               So, the value of x is 4.
@@ -107,13 +106,7 @@ const ChatScreen = () => {
       </Box>
 
       <Prompt />
-
-      <Footer />
-      
-        
-        
-      </Box>
-    
+    </Box>
   );
 };
 
