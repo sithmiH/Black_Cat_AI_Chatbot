@@ -13,12 +13,20 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import BedtimeOutlinedIcon from "@mui/icons-material/BedtimeOutlined";
+import { useNavigate } from "react-router-dom";
 
 // Assuming your image is in the 'assets' folder and named 'Group.png'
 const drawerWidth = 240;
-const navItems = ["Home", "Docs", "Pricing", "Login", "Sign Up"];
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "Docs", href: "/" },
+  { name: "Pricing", href: "/" },
+  { name: "Login", href: "/login" },
+  { name: "Sign Up", href: "/signup" },
+];
 
 const Header = () => {
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false); // Add state for dark mode
 
@@ -40,9 +48,9 @@ const Header = () => {
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.name} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -117,7 +125,7 @@ const Header = () => {
             </IconButton>
             {navItems.slice(0, -1).map((item) => (
               <Button
-                key={item}
+                key={item.name}
                 sx={{
                   color: "black",
                   fontFamily: "Outfit", // Outfit font for navigation items
@@ -125,8 +133,9 @@ const Header = () => {
                   textTransform: "none",
                   fontSize: 16,
                 }}
+                onClick={() => navigate(item.href)}
               >
-                {item}
+                {item.name}
               </Button>
             ))}
             <Button
@@ -141,8 +150,9 @@ const Header = () => {
                 fontWeight: 400,
                 textTransform: "none",
               }}
+              onClick={() => navigate(navItems[navItems.length - 1].href)}
             >
-              {navItems[navItems.length - 1]}
+              {navItems[navItems.length - 1].name}
             </Button>
           </Box>
         </Toolbar>

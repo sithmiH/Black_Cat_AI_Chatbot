@@ -9,12 +9,10 @@ export const Home = () => {
     <div
       style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
     >
-      <Header />
       <Container component="main" sx={{ flexGrow: 1, py: 4 }}>
         {/* Main content goes here */}
         <h1>Welcome to Black Cat AI</h1>
       </Container>
-      <Footer />
     </div>
   );
 };
