@@ -6,6 +6,7 @@ import Prompt from "./components/Prompt";
 import { Login } from "./pages/Login";
 import MainLayout from "./components/layout/MainLayout";
 import ChatScreen from "./pages/ChatScreen";
+import ChatBoxLayout from "./components/layout/ChatBoxLayout";
 
 const privateRouter = createBrowserRouter([
   {
@@ -14,7 +15,11 @@ const privateRouter = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       { path: "/prompt", element: <Prompt /> },
-      { path: "/chat", element: <ChatScreen /> },
+      {
+        path: "/chat",
+        element: <ChatBoxLayout />,
+        children: [{ path: "/chat", element: <ChatScreen /> }],
+      },
     ],
   },
   {

@@ -7,7 +7,11 @@ import { Container } from "@mui/material";
 const MainLayout = () => (
   <>
     <Header />
-    <Container component="main" sx={{ flex: 1, py: 3, textAlign: "center" }}>
+    <Container
+      component="main"
+      sx={{ flex: 1, py: 3, textAlign: "center" }}
+      maxWidth="xl"
+    >
       <Outlet />
     </Container>
     <Footer />
