@@ -1,10 +1,176 @@
-import React from "react";
-import BedtimeIcon from "@mui/icons-material/Bedtime";
+import React, { useState } from "react";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Button from "@mui/material/Button";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import Divider from "@mui/material/Divider";
+import Box from "@mui/material/Box";
+import BedtimeOutlinedIcon from "@mui/icons-material/BedtimeOutlined";
 
-export const Header = () => {
+// Assuming your image is in the 'assets' folder and named 'Group.png'
+const drawerWidth = 240;
+const navItems = ["Home", "Docs", "Pricing", "Login", "Sign Up"];
+
+const Header = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false); // Add state for dark mode
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
+
+  const handleMoonIconClick = () => {
+    setIsDarkMode(!isDarkMode); // Toggle dark mode state
+    console.log("Moon icon clicked, Dark Mode:", !isDarkMode); // For testing
+    // Add additional logic for switching theme here
+  };
+
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Typography variant="h6" sx={{ my: 2 }}>
+        Black Cat
+      </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item} disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              <ListItemText primary={item} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
   return (
-    <>
-      <BedtimeIcon fontSize="small" />
-    </>
+    <Box sx={{ display: "flex" }}>
+      <AppBar
+        component="nav"
+        sx={{ backgroundColor: "white", color: "black", boxShadow: "none" }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+
+          {/* Centered logo image */}
+          <Box
+            sx={{
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)", // Centers the image
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src="/assets/Group.png" // Update with the correct path to your logo image
+              alt="Logo"
+              style={{ width: "50px", height: "50px" }} // Adjust size as needed
+            />
+          </Box>
+
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              fontWeight: 1000, // Increased boldness for "Black Cat"
+              fontFamily: "Outfit",
+              display: { xs: "none", sm: "block" },
+            }}
+          >
+            Black Cat
+          </Typography>
+          <Box
+            sx={{
+              display: { xs: "none", sm: "flex" },
+              alignItems: "center",
+              gap: 2,
+            }}
+          >
+            {/* Make the moon icon clickable */}
+            <IconButton
+              color="inherit"
+              onClick={handleMoonIconClick} // Handle the click event
+              sx={{
+                verticalAlign: "middle",
+                fontSize: "1.2rem",
+                color: "black",
+              }}
+            >
+              <BedtimeOutlinedIcon />
+            </IconButton>
+            {navItems.slice(0, -1).map((item) => (
+              <Button
+                key={item}
+                sx={{
+                  color: "black",
+                  fontFamily: "Outfit", // Outfit font for navigation items
+                  fontWeight: 600,
+                }}
+              >
+                {item}
+              </Button>
+            ))}
+            <Button
+              variant="outlined"
+              sx={{
+                borderColor: "black",
+                color: "black",
+                borderRadius: "60px", // Rounded edges
+                borderWidth: "2px",
+                padding: "8px 12px", // Adjusted padding
+                fontFamily: "Outfit", // Outfit font for Sign Up
+                fontWeight: 600,
+              }}
+            >
+              {navItems[navItems.length - 1]}
+            </Button>
+          </Box>
+        </Toolbar>
+      </AppBar>
+
+      <Box component="nav">
+        <Drawer
+          variant="temporary"
+          anchor="right" // Moves the drawer to the right side
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+
+      <Box component="main" sx={{ p: 3 }}>
+        <Toolbar />
+      </Box>
+    </Box>
   );
 };
+
+export default Header;
