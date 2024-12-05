@@ -1,22 +1,7 @@
 import React from "react";
 
-import {
-  Box,
-  AppBar,
-  Toolbar,
-  Typography,
-  IconButton,
-  TextField,
-  Button,
-  Paper,
-  Divider,
-} from "@mui/material";
-import {
-  Menu as MenuIcon,
-  Brightness4 as DarkModeIcon,
-} from "@mui/icons-material";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import { Box, Typography, Paper } from "@mui/material";
+
 import Prompt from "../components/Prompt";
 
 const ChatScreen = () => {
@@ -163,17 +148,61 @@ const ChatScreen = () => {
           </Typography>
         </Box>
 
-        {/* Expand Button */}
-        <Button
-          variant="outlined"
+        {/* Chat Bubble for Expand */}
+        <Box
           sx={{
-            display: "block",
-            ml: "auto",
-            mt: 1,
+            width: 252, // Chat bubble width
+            height: 50, // Chat bubble height
+            bgcolor: "#EAEAEA", // Background color
+            borderRadius: "50px 50px 0px 50px", // Rounded edges
+            border: "2px solid #FFFFFF", // Border with white color
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mt: 1, // Margin on top for spacing
+            ml: "auto", // Align bubble to the right
           }}
         >
-          Expand each step with examples
-        </Button>
+          <Typography
+            variant="body2"
+            sx={{
+              textAlign: "center",
+              fontSize: "14px",
+              color: "#000", // Black text color
+              paddingX: 2, // Add padding inside bubble
+            }}
+          >
+            Expand each step with examples
+          </Typography>
+        </Box>
+
+        {/* Left Chat Bubble */}
+        <Box
+          sx={{
+            width: 171, // Chat bubble width
+            height: 56, // Chat bubble height
+            bgcolor: "#FFFFFF", // Background color
+            borderRadius: "50px 50px 50px 0px", // Rounded edges with flat edge on the left
+            border: "2px solid #EAEAEA", // Border with white color
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mt: 1, // Margin on top for spacing
+            mr: "auto", // Align bubble to the left
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              textAlign: "center",
+              fontSize: "14px",
+              color: "#BABABA", // Black text color
+              paddingX: 2, // Add padding inside bubble
+            }}
+          >
+            Almost there
+          </Typography>
+        </Box>
       </Box>
 
       <Prompt />
