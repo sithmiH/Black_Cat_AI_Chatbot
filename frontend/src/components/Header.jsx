@@ -121,7 +121,9 @@ const Header = () => {
                 sx={{
                   color: "black",
                   fontFamily: "Outfit", // Outfit font for navigation items
-                  fontWeight: 600,
+                  fontWeight: 400,
+                  textTransform: "none",
+                  fontSize: 16,
                 }}
               >
                 {item}
@@ -136,7 +138,8 @@ const Header = () => {
                 borderWidth: "2px",
                 padding: "8px 12px", // Adjusted padding
                 fontFamily: "Outfit", // Outfit font for Sign Up
-                fontWeight: 600,
+                fontWeight: 400,
+                textTransform: "none",
               }}
             >
               {navItems[navItems.length - 1]}
