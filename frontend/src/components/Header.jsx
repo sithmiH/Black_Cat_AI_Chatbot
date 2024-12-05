@@ -12,7 +12,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
-import BedtimeOutlinedIcon from "@mui/icons-material/BedtimeOutlined";
+import { Moon } from "iconsax-react";
 import { useNavigate } from "react-router-dom";
 
 // Assuming your image is in the 'assets' folder and named 'Group.png'
@@ -121,7 +121,7 @@ const Header = () => {
                 color: "black",
               }}
             >
-              <BedtimeOutlinedIcon />
+              <Moon color="#000" />
             </IconButton>
             {navItems.slice(0, -1).map((item) => (
               <Button
