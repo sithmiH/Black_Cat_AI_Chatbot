@@ -1,8 +1,13 @@
 import React from "react";
-
-import { Box, Typography, Paper, CircularProgress } from "@mui/material";
-
+import {
+  Box,
+  Typography,
+  Paper,
+  CircularProgress,
+  IconButton,
+} from "@mui/material";
 import Prompt from "../components/Prompt";
+import { DocumentUpload } from "iconsax-react";
 
 const ChatScreen = () => {
   return (
@@ -20,8 +25,37 @@ const ChatScreen = () => {
           overflowY: "auto", // Ensure content inside can scroll
         }}
       >
+        {/* File Icon and Name Section */}
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            borderRadius: "10px",
+            padding: 1,
+            mt: 1,
+            ml: "auto", // Align to the right
+            maxWidth: 280, // Set a max width for the file container
+          }}
+        >
+          {/* File Icon */}
+          <IconButton>
+            <DocumentUpload color="#6B6B6B" variant="Bold" /> {/* Gray icon */}
+          </IconButton>
+          {/* File Name */}
+          <Typography
+            variant="body2"
+            sx={{
+              fontSize: "14px",
+              color: "#6B6B6B", // Gray text
+              overflowWrap: "break-word",
+            }}
+          >
+            Basics of Statistics.pdf
+          </Typography>
+        </Box>
+        {/* End of File Icon and Name Section */}
+
         {/* Question */}
-        {/* Chat Bubble for Expand */}
         <Box
           sx={{
             width: 252, // Chat bubble width
@@ -32,7 +66,7 @@ const ChatScreen = () => {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            mt: 1, // Margin on top for spacing
+            mt: 0, // Margin on top for spacing
             ml: "auto", // Align bubble to the right
           }}
         >
@@ -50,7 +84,6 @@ const ChatScreen = () => {
         </Box>
 
         {/* Response */}
-
         <Paper
           elevation={0}
           sx={{
