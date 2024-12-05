@@ -5,54 +5,16 @@ import {
   TextField,
   Button,
   Divider,
-  IconButton,
+  Container,
 } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import NightsStayOutlinedIcon from "@mui/icons-material/NightsStayOutlined";
 import BlackCat from "../assets/BlackCat.png";
 
 const Login = () => {
   return (
-    <>
-      {/* Logo Image - outside of background box */}
-      <Box
-        sx={{
-          position: "relative",
-          top: 0,
-          left: 0,
-          right: 0,
-          display: "flex",
-          flexDirection: "column", // To stack image and text vertically
-          justifyContent: "center", // Center horizontally
-          alignItems: "center", // Center vertically
-          padding: "10px 10px",
-          zIndex: 2, // Ensure it stays on top
-        }}
-      >
-        <img
-          src="/assets/Group.png" // Replace with your logo image path
-          alt="Group"
-          style={{
-            maxWidth: "150px", // Adjust size as needed
-            height: "auto", // Maintain aspect ratio
-          }}
-        />
-        <Typography
-          variant="h6" // Adjust the variant as needed
-          sx={{
-            fontWeight: "bold", // Bold text
-            color: "black", // Black color
-            mt: 1, // Margin top for spacing between image and text
-          }}
-        >
-          Black Cat
-        </Typography>
-      </Box>
-
-      <NightsStayOutlinedIcon sx={{ color: "#000" }} />
-      {/* Background Box with Black Cat Image */}
+    <Container maxWidth="lg" sx={{ py: 4 }}>
       <Box
         sx={{
           minHeight: "100vh",
@@ -65,7 +27,6 @@ const Login = () => {
           alignItems: "center",
           position: "relative",
           padding: "70px 20px 0px 20px", // Added padding for content spacing
-          marginTop: "80px", // To avoid overlap with logo
         }}
       >
         {/* Login Form Section */}
@@ -77,7 +38,8 @@ const Login = () => {
             borderRadius: 2,
             boxShadow: 3,
             padding: 4,
-            marginLeft: 4,
+            marginY: 12,
+            marginX: 4,
           }}
         >
           <Typography
@@ -269,7 +231,7 @@ const Login = () => {
           </Typography>
         </Box>
       </Box>
-    </>
+    </Container>
   );
 };
 

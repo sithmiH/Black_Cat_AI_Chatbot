@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Box, TextField, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/SendRounded";
-import EditIcon from "@mui/icons-material/AutoFixHigh";
-import KeyboardIcon from "@mui/icons-material/KeyboardAltOutlined";
-import AttachFileIcon from "@mui/icons-material/AttachFileOutlined";
-import MicIcon from "@mui/icons-material/MicNone";
 import StopIcon from "@mui/icons-material/StopCircleOutlined";
+import { Magicpen, Keyboard, AttachCircle, Microphone2 } from "iconsax-react";
 
 const Prompt = () => {
   const [inputMessage, setInputMessage] = useState("");
@@ -20,60 +17,51 @@ const Prompt = () => {
   return (
     <Box
       sx={{
-        marginTop: "40px",
-        padding: "24px",
-        width: "90%",
-        maxWidth: "800px",
-        backgroundColor: "#fff",
-        borderRadius: "8px",
-        boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
         display: "flex",
-        flexDirection: "column",
-        gap: 2,
+        alignItems: "center",
+        backgroundColor: "#F6F6F6",
+        borderRadius: "24px",
+        justifyContent: "space-between",
+        padding: 2,
+        marginY: 6,
       }}
     >
-      <Box
+      <IconButton>
+        <StopIcon sx={{ fontSize: 42, color: "#000" }} />
+      </IconButton>
+
+      <TextField
+        fullWidth
+        value={inputMessage}
+        onChange={(e) => setInputMessage(e.target.value)}
+        placeholder="Type a message"
+        variant="standard"
         sx={{
-          marginTop: 4,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          borderTop: "1px solid #ddd",
-          paddingTop: 2,
+          marginRight: 1,
         }}
-      >
+        slotProps={{
+          input: {
+            disableUnderline: true,
+          },
+        }}
+      />
+
+      <Box sx={{ display: "flex", gap: 2 }}>
         <IconButton>
-          <StopIcon sx={{ fontSize: 42, color: "#171717" }} />
+          <Magicpen color="#D4D4D4" />
         </IconButton>
-
-        <TextField
-          fullWidth
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-          placeholder="Type a message"
-          variant="outlined"
-          sx={{
-            marginRight: 1,
-          }}
-        />
-
-        <Box sx={{ display: "flex", gap: 2 }}>
-          <IconButton>
-            <EditIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
-          </IconButton>
-          <IconButton>
-            <KeyboardIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
-          </IconButton>
-          <IconButton>
-            <AttachFileIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
-          </IconButton>
-          <IconButton>
-            <MicIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
-          </IconButton>
-          <IconButton color="primary" onClick={handleSendMessage}>
-            <SendIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
-          </IconButton>
-        </Box>
+        <IconButton>
+          <Keyboard color="#D4D4D4" />
+        </IconButton>
+        <IconButton>
+          <AttachCircle color="#D4D4D4" />
+        </IconButton>
+        <IconButton>
+          <Microphone2 color="#D4D4D4" />
+        </IconButton>
+        <IconButton color="primary" onClick={handleSendMessage}>
+          <SendIcon sx={{ fontSize: 24, color: "#D4D4D4" }} />
+        </IconButton>
       </Box>
     </Box>
   );
