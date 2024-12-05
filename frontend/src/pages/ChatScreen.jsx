@@ -148,61 +148,60 @@ const ChatScreen = () => {
           </Typography>
         </Box>
 
-          {/* Chat Bubble for Expand */}
-          <Box
+        {/* Chat Bubble for Expand */}
+        <Box
+          sx={{
+            width: 252, // Chat bubble width
+            height: 50, // Chat bubble height
+            bgcolor: "#EAEAEA", // Background color
+            borderRadius: "50px 50px 0px 50px", // Rounded edges
+            border: "2px solid #FFFFFF", // Border with white color
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mt: 1, // Margin on top for spacing
+            ml: "auto", // Align bubble to the right
+          }}
+        >
+          <Typography
+            variant="body2"
             sx={{
-              width: 252, // Chat bubble width
-              height: 50, // Chat bubble height
-              bgcolor: "#EAEAEA", // Background color
-              borderRadius: "50px 50px 0px 50px", // Rounded edges
-              border: "2px solid #FFFFFF", // Border with white color
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              mt: 1, // Margin on top for spacing
-              ml: "auto", // Align bubble to the right
+              textAlign: "center",
+              fontSize: "14px",
+              color: "#000", // Black text color
+              paddingX: 2, // Add padding inside bubble
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{
-                textAlign: "center",
-                fontSize: "14px",
-                color: "#000", // Black text color
-                paddingX: 2, // Add padding inside bubble
-              }}
-            >
-              Expand each step with examples
-            </Typography>
-          </Box>
+            Expand each step with examples
+          </Typography>
+        </Box>
 
-          {/* Left Chat Bubble */}
-          <Box
+        {/* Left Chat Bubble */}
+        <Box
+          sx={{
+            width: 171, // Chat bubble width
+            height: 56, // Chat bubble height
+            bgcolor: "#FFFFFF", // Background color
+            borderRadius: "50px 50px 50px 0px", // Rounded edges with flat edge on the left
+            border: "2px solid #EAEAEA", // Border with white color
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mt: 1, // Margin on top for spacing
+            mr: "auto", // Align bubble to the left
+          }}
+        >
+          <Typography
+            variant="body2"
             sx={{
-              width: 171, // Chat bubble width
-              height: 56, // Chat bubble height
-              bgcolor: "#FFFFFF", // Background color
-              borderRadius: "50px 50px 50px 0px", // Rounded edges with flat edge on the left
-              border: "2px solid #EAEAEA", // Border with white color
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              mt: 1, // Margin on top for spacing
-              mr: "auto", // Align bubble to the left
+              textAlign: "center",
+              fontSize: "14px",
+              color: "#BABABA", // Black text color
+              paddingX: 2, // Add padding inside bubble
             }}
           >
-            <Typography
-              variant="body2"
-              sx={{
-                textAlign: "center",
-                fontSize: "14px",
-                color: "#BABABA", // Black text color
-                paddingX: 2, // Add padding inside bubble
-              }}
-            >
-              Almost there
-            </Typography>
-          </Box>
+            Almost there
+          </Typography>
         </Box>
       </Box>
 
