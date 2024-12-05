@@ -14,6 +14,7 @@ import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import { Moon } from "iconsax-react";
 import { useNavigate } from "react-router-dom";
+import { useThemeContext } from "../contexts/themeContext";
 
 // Assuming your image is in the 'assets' folder and named 'Group.png'
 const drawerWidth = 240;
@@ -27,6 +28,7 @@ const navItems = [
 
 const Header = () => {
   const navigate = useNavigate();
+  const { mode, toggleColorMode } = useThemeContext();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false); // Add state for dark mode
 
@@ -35,9 +37,7 @@ const Header = () => {
   };
 
   const handleMoonIconClick = () => {
-    setIsDarkMode(!isDarkMode); // Toggle dark mode state
-    console.log("Moon icon clicked, Dark Mode:", !isDarkMode); // For testing
-    // Add additional logic for switching theme here
+    toggleColorMode();
   };
 
   const drawer = (
