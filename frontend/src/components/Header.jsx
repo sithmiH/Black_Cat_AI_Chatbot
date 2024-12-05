@@ -145,9 +145,10 @@ const Header = () => {
                 color: "black",
                 borderRadius: "60px", // Rounded edges
                 borderWidth: "2px",
-                padding: "8px 12px", // Adjusted padding
+                padding: "12px 18px", // Adjusted padding
                 fontFamily: "Outfit", // Outfit font for Sign Up
                 fontWeight: 400,
+                fontSize: 14,
                 textTransform: "none",
               }}
               onClick={() => navigate(navItems[navItems.length - 1].href)}
