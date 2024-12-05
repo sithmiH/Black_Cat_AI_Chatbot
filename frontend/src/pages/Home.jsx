@@ -6,7 +6,6 @@ import {
   Button,
   Grid,
   Paper,
-  Container,
   IconButton,
 } from "@mui/material";
 import { AttachCircle, Microphone2, Keyboard, Magicpen } from "iconsax-react";
@@ -26,18 +25,72 @@ export const Home = () => {
       {/* Header Section */}
 
       {/* Main Content */}
-      <Typography variant="h3" component="h1" fontWeight="bold" gutterBottom>
-        Master Math Instantly with Black Cat AI
-      </Typography>
-      <Typography
-        variant="subtitle1"
-        color="textSecondary"
-        sx={{ mb: 4, maxWidth: 600, mx: "auto" }}
-      >
-        Get accurate solutions to any math problem in seconds, powered by
-        advanced AI. Simple, fast, and reliable.
-      </Typography>
+      <Box>
+        <Typography variant="h3" component="h1" fontWeight="bold" gutterBottom>
+          Master Math Instantly with Black Cat AI
+        </Typography>
+        <Typography
+          variant="subtitle1"
+          color="textSecondary"
+          sx={{ mb: 4, maxWidth: 600, mx: "auto" }}
+        >
+          Get accurate solutions to any math problem in seconds, powered by
+          advanced AI. Simple, fast, and reliable.
+        </Typography>
+      </Box>
 
+      <Box
+        sx={{
+          position: "absolute",
+          right: 160,
+          top: 145,
+          width: "180px",
+          height: "180px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            background:
+              "radial-gradient(circle at center, rgba(0, 195, 255, 0.2) 0%, rgba(0, 195, 255, 0.1) 30%, transparent 70%)",
+            filter: "blur(30px)",
+            transform: "scale(1.4)",
+            zIndex: 0,
+            animation: "pulse 2s infinite",
+          },
+          "@keyframes pulse": {
+            "0%": {
+              opacity: 0.8,
+              transform: "scale(1.4)",
+            },
+            "50%": {
+              opacity: 0.6,
+              transform: "scale(1.5)",
+            },
+            "100%": {
+              opacity: 0.8,
+              transform: "scale(1.4)",
+            },
+          },
+        }}
+      >
+        <Box
+          component="img"
+          src="/assets/download__4_-removebg-preview.png"
+          alt="Black Cat AI"
+          sx={{
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            position: "relative",
+            zIndex: 1,
+            filter: "drop-shadow(0 0 15px rgba(0, 195, 255, 0.3))",
+          }}
+        />
+      </Box>
       {/* Suggestion Buttons Section */}
       <Box
         sx={{
@@ -128,20 +181,6 @@ export const Home = () => {
                   minWidth: 0, // Prevent any fixed min width
                 }}
               >
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: 206.26, // Position the image 206.26px above the top edge of the parent
-                    left: 1098,
-                  }}
-                >
-                  <img
-                    src="/assets/download__4_-removebg-preview.png"
-                    alt="Icon"
-                    width={24}
-                    height={24}
-                  />
-                </Box>
                 <Typography
                   variant="body2"
                   sx={{
