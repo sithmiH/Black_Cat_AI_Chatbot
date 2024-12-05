@@ -19,6 +19,7 @@ function App() {
             backgroundColor: "#f5f5f5",
           }}
         >
+          
           {/* Add your MathMasterCard component here if it's not yet imported */}
           {/* Example: */}
           <SidePanel />

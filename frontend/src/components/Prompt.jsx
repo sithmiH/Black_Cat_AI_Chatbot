@@ -21,6 +21,7 @@ const Prompt = () => {
     <Box
       sx={{
         marginTop: "40px",
+       
         padding: "24px",
         width: "90%",
         maxWidth: "800px",
@@ -35,6 +36,7 @@ const Prompt = () => {
       <Box
         sx={{
           marginTop: 4,
+          
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
