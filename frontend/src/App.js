@@ -1,14 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import Prompt from "./components/Prompt";
 import SidePanel from "./components/SidePanel";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Prompt />
         {/* You can add more routes here if you want to switch between components */}
         <div
           style={{

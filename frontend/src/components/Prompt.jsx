@@ -21,7 +21,7 @@ const Prompt = () => {
     <Box
       sx={{
         marginTop: "40px",
-       
+
         padding: "24px",
         width: "90%",
         maxWidth: "800px",
@@ -35,13 +35,12 @@ const Prompt = () => {
     >
       <Box
         sx={{
-          marginTop: 4,
-          
           display: "flex",
           alignItems: "center",
+          backgroundColor: "#F6F6F6",
+          borderRadius: "16px",
           justifyContent: "space-between",
-          borderTop: "1px solid #ddd",
-          paddingTop: 2,
+          paddingY: 2,
         }}
       >
         <IconButton>
@@ -53,9 +52,14 @@ const Prompt = () => {
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
           placeholder="Type a message"
-          variant="outlined"
+          variant="standard"
           sx={{
             marginRight: 1,
+          }}
+          slotProps={{
+            input: {
+              disableUnderline: true,
+            },
           }}
         />
 
