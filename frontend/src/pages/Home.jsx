@@ -16,16 +16,16 @@ export const Home = () => {
   return (
     <Box
       sx={{
-        minHeight: "100vh",
+        // minHeight: "100vh",
         bgcolor: "white",
         display: "flex",
         flexDirection: "column",
+        paddingY: 4,
       }}
     >
       {/* Header Section */}
 
       {/* Main Content */}
-      {/* <Container component="main" sx={{ flex: 1, py: 6, textAlign: "center" }}> */}
       <Typography variant="h3" component="h1" fontWeight="bold" gutterBottom>
         Master Math Instantly with Black Cat AI
       </Typography>
@@ -42,7 +42,7 @@ export const Home = () => {
       <Box
         sx={{
           bgcolor: "rgba(49, 49, 50, 0.06)", // #313132 with 6% opacity
-          borderRadius: 2,
+          borderRadius: 4,
           p: 3,
           mb: 8,
           width: "100%", // Set width here (increase as needed)
@@ -175,30 +175,33 @@ export const Home = () => {
       </Box>
 
       {/* Solve a Problem Button */}
-      <Button
-        variant="contained"
-        color="primary"
-        size="small"
-        sx={{
-          mt: 2,
-          bgcolor: "#313132", // Primary black color
-          color: "write", // White text color
-          borderRadius: 30, // Rounded corners
-          px: 4, // Horizontal padding
-          py: 2, // Vertical padding
-          ":hover": {
-            bgcolor: "#313132", // Darker black on hover
-          },
-          fontWeight: "light", // Light font weight
-          fontFamily: '"Outfit", sans-serif', // Apply Outfit font
-          fontSize: 14, // Font size set to 14px
-          boxShadow: 4, // Box shadow effect
-        }}
-        onClick={() => navigate("/chat")} // Navigate to ChatScreen
-      >
-        Solve a Problem
-      </Button>
-      {/* </Container> */}
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
+        <Button
+          variant="contained"
+          color="primary"
+          size="small"
+          sx={{
+            bgcolor: "#313132", // Primary black color
+            color: "white", // White text color
+            borderRadius: 30, // Rounded corners
+            px: 4, // Horizontal padding
+            py: 2, // Vertical padding
+            ":hover": {
+              bgcolor: "#313132", // Darker black on hover
+            },
+            fontWeight: "light", // Light font weight
+            fontFamily: '"Outfit", sans-serif', // Apply Outfit font
+            fontSize: 14, // Font size set to 14px
+            boxShadow: 4, // Box shadow effect
+            width: "auto", // Makes the button width adjust to its content
+            maxWidth: "200px", // Set a maximum width for the button
+            textTransform: "none",
+          }}
+          onClick={() => navigate("/chat")} // Navigate to ChatScreen
+        >
+          Solve a Problem
+        </Button>
+      </Box>
     </Box>
   );
 };
