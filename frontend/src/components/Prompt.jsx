@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Box, TextField, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/SendRounded";
-import EditIcon from "@mui/icons-material/AutoFixHigh";
-import KeyboardIcon from "@mui/icons-material/KeyboardAltOutlined";
-import AttachFileIcon from "@mui/icons-material/AttachFileOutlined";
-import MicIcon from "@mui/icons-material/MicNone";
 import StopIcon from "@mui/icons-material/StopCircleOutlined";
+import { Magicpen, Keyboard, AttachCircle, Microphone2 } from "iconsax-react";
 
 const Prompt = () => {
   const [inputMessage, setInputMessage] = useState("");
@@ -25,12 +22,12 @@ const Prompt = () => {
         backgroundColor: "#F6F6F6",
         borderRadius: "24px",
         justifyContent: "space-between",
-        paddingY: 2,
+        padding: 2,
         marginY: 6,
       }}
     >
       <IconButton>
-        <StopIcon sx={{ fontSize: 42, color: "#171717" }} />
+        <StopIcon sx={{ fontSize: 42, color: "#000" }} />
       </IconButton>
 
       <TextField
@@ -51,19 +48,19 @@ const Prompt = () => {
 
       <Box sx={{ display: "flex", gap: 2 }}>
         <IconButton>
-          <EditIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
+          <Magicpen color="#D4D4D4" />
         </IconButton>
         <IconButton>
-          <KeyboardIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
+          <Keyboard color="#D4D4D4" />
         </IconButton>
         <IconButton>
-          <AttachFileIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
+          <AttachCircle color="#D4D4D4" />
         </IconButton>
         <IconButton>
-          <MicIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
+          <Microphone2 color="#D4D4D4" />
         </IconButton>
         <IconButton color="primary" onClick={handleSendMessage}>
-          <SendIcon sx={{ fontSize: 24, color: "#D1D1D1" }} />
+          <SendIcon sx={{ fontSize: 24, color: "#D4D4D4" }} />
         </IconButton>
       </Box>
     </Box>
