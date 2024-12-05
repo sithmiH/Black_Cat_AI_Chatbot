@@ -5,13 +5,11 @@ import {
   TextField,
   Button,
   Divider,
-  IconButton,
   Container,
 } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import NightsStayOutlinedIcon from "@mui/icons-material/NightsStayOutlined";
 import BlackCat from "../assets/BlackCat.png";
 
 const Login = () => {
