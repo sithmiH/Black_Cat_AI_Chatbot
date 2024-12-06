@@ -19,6 +19,7 @@ const LoginSignupHeader = () => {
           flexDirection: "row", // To stack image and text vertically
           zIndex: 2, // Ensure it stays on top
           paddingX: 10,
+          paddingTop: 4,
         }}
       >
         <Box

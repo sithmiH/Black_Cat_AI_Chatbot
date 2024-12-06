@@ -217,7 +217,7 @@ const Login = () => {
           >
             Need an account?{" "}
             <a
-              href="#"
+              href="/signup"
               style={{
                 textDecoration: "none",
                 fontSize: 14,
