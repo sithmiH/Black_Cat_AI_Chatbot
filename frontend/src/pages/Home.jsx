@@ -28,7 +28,7 @@ export const Home = () => {
         {/* Header Section */}
 
         {/* Main Content */}
-        <Box>
+        <Box sx={{ position: "relative" }}>
           <Typography
             variant="h3"
             component="h1"
@@ -45,44 +45,45 @@ export const Home = () => {
             Get accurate solutions to any math problem in seconds, powered by
             advanced AI. Simple, fast, and reliable.
           </Typography>
-        </Box>
 
-        <Box
-          sx={{
-            position: "absolute",
-            right: 200,
-            top: 145,
-            width: "180px",
-            height: "180px",
-            display: { xs: "none", sm: "flex" },
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
           <Box
-            component="img"
-            src="/assets/neon.svg"
-            alt="neon"
             sx={{
               position: "absolute",
-              width: "500px", // Smaller size for neon image
-              height: "auto", // Maintain aspect ratio
+              right: 15, // Positioning it to the right bottom corner of the parent container
+              bottom: 0, // Placing it at the bottom of the parent container
+              width: "180px",
+              height: "180px",
+              display: { xs: "none", sm: "flex" },
+              alignItems: "center",
+              justifyContent: "center",
             }}
-          />
-          <Box
-            component="img"
-            src="/assets/download__4_-removebg-preview.png"
-            alt="Black Cat AI"
-            sx={{
-              width: "100%",
-              height: "100%",
-              objectFit: "contain",
-              position: "relative",
-              zIndex: 1,
-              filter: "drop-shadow(0 0 15px rgba(0, 195, 255, 0.3))",
-            }}
-          />
+          >
+            <Box
+              component="img"
+              src="/assets/neon.svg"
+              alt="neon"
+              sx={{
+                position: "absolute",
+                width: "500px", // Smaller size for neon image
+                height: "auto", // Maintain aspect ratio
+              }}
+            />
+            <Box
+              component="img"
+              src="/assets/download__4_-removebg-preview.png"
+              alt="Black Cat AI"
+              sx={{
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                position: "relative",
+                zIndex: 1,
+                filter: "drop-shadow(0 0 15px rgba(0, 195, 255, 0.3))",
+              }}
+            />
+          </Box>
         </Box>
+
         {/* Suggestion Buttons Section */}
         <Box
           sx={{

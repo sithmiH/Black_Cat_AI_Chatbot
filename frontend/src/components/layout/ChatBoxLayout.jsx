@@ -48,21 +48,24 @@ const ChatBoxLayout = () => {
         }}
       >
         {!showPanel && (
-          <>
+          <Box
+            sx={{
+              display: { xs: "none", sm: "flex" },
+            }}
+          >
             <IconButton onClick={() => setShowPanel(true)}>
               <Element2 color={mode === "light" ? "#000" : "#FFF"} />
             </IconButton>
             <IconButton color="primary" onClick={toggleColorMode}>
               <Moon color={mode === "light" ? "#000" : "#511956"} />
             </IconButton>
-          </>
+          </Box>
         )}
       </Box>
 
       <Box
         sx={{
           position: "relative",
-          left: 0,
           transform: showPanel ? "translateX(0)" : "translateX(-100%)",
           opacity: showPanel ? 1 : 0,
           transition: "all 0.3s ease-in-out",
