@@ -14,6 +14,7 @@ import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import { Moon } from "iconsax-react";
 import { useNavigate } from "react-router-dom";
+import { useThemeContext } from "../contexts/themeContext";
 
 // Assuming your image is in the 'assets' folder and named 'Group.png'
 const drawerWidth = 240;
@@ -27,6 +28,7 @@ const navItems = [
 
 const Header = () => {
   const navigate = useNavigate();
+  const { mode, toggleColorMode } = useThemeContext();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false); // Add state for dark mode
 
@@ -35,14 +37,12 @@ const Header = () => {
   };
 
   const handleMoonIconClick = () => {
-    setIsDarkMode(!isDarkMode); // Toggle dark mode state
-    console.log("Moon icon clicked, Dark Mode:", !isDarkMode); // For testing
-    // Add additional logic for switching theme here
+    toggleColorMode();
   };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography variant="h6" sx={{ my: 2 }} color="primary">
         Black Cat
       </Typography>
       <Divider />
@@ -62,7 +62,11 @@ const Header = () => {
     <Box sx={{ display: "flex" }}>
       <AppBar
         component="nav"
-        sx={{ backgroundColor: "white", color: "black", boxShadow: "none" }}
+        sx={{
+          color: "black",
+          boxShadow: "none",
+        }}
+        color="transparent"
       >
         <Toolbar>
           <IconButton
@@ -95,6 +99,7 @@ const Header = () => {
           <Typography
             variant="h6"
             component="div"
+            color="primary"
             sx={{
               flexGrow: 1,
               fontWeight: 1000, // Increased boldness for "Black Cat"
@@ -121,13 +126,13 @@ const Header = () => {
                 color: "black",
               }}
             >
-              <Moon color="#000" />
+              <Moon color={mode === "light" ? "#000" : "#511956"} />
             </IconButton>
             {navItems.slice(0, -1).map((item) => (
               <Button
                 key={item.name}
                 sx={{
-                  color: "black",
+                  color: "primary",
                   fontFamily: "Outfit", // Outfit font for navigation items
                   fontWeight: 400,
                   textTransform: "none",
@@ -141,8 +146,8 @@ const Header = () => {
             <Button
               variant="outlined"
               sx={{
-                borderColor: "black",
-                color: "black",
+                borderColor: "primary",
+                color: "primary",
                 borderRadius: "60px", // Rounded edges
                 borderWidth: "2px",
                 padding: "12px 18px", // Adjusted padding

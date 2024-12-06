@@ -1,6 +1,6 @@
 // components/Footer.jsx
-import React from 'react';
-import { Box, Typography, Link, Grid } from '@mui/material';
+import React from "react";
+import { Box, Typography, Link, Grid } from "@mui/material";
 
 const Footer = () => {
   return (
@@ -8,10 +8,11 @@ const Footer = () => {
       component="footer"
       sx={{
         py: 3,
-        textAlign: 'center',
-        bgcolor: '#ffffff',
-        borderTop: '1px solid #e0e0e0',
+        textAlign: "center",
+        borderTop: "1px solid #e0e0e0",
+        marginX: 8,
       }}
+      color="transparent"
     >
       <Grid container justifyContent="space-between" sx={{ px: 2 }}>
         <Grid item>
