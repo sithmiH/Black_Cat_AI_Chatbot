@@ -132,6 +132,7 @@ export const Home = () => {
                         px: 3, // Horizontal padding
                         py: 1, // Vertical padding
                         ":hover": { boxShadow: 4 },
+                        bgcolor: theme.palette.background.default,
                         border: `2px solid ${theme.palette.border.main}`,
                       })}
                     >
@@ -166,13 +167,14 @@ export const Home = () => {
                     textAlign: "center",
                     borderRadius: 50,
                     cursor: "pointer",
-                    px: 3, // Horizontal padding
-                    py: 1, // Vertical padding
+                    px: 3,
+                    py: 1,
                     ":hover": { boxShadow: 4 },
+                    bgcolor: theme.palette.background.default,
                     border: `2px solid ${theme.palette.border.main}`,
-                    maxWidth: "auto", // Make the width responsive to text
-                    width: "auto", // Let the box width adjust to the text size
-                    minWidth: 0, // Prevent any fixed min width
+                    maxWidth: "auto",
+                    width: "auto",
+                    minWidth: 0,
                   })}
                 >
                   <Typography
