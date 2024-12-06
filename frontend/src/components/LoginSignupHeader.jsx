@@ -1,6 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import { Moon } from "iconsax-react";
+import { useThemeContext } from "../contexts/themeContext";
+import IconButton from "@mui/material/IconButton";
 const LoginSignupHeader = () => {
+  const { mode, toggleColorMode } = useThemeContext();
   return (
     <>
       <Box
@@ -32,10 +35,11 @@ const LoginSignupHeader = () => {
             }}
           />
           <Typography
+            component="div"
+            color="primary"
             variant="h6" // Adjust the variant as needed
             sx={{
               fontWeight: "bold", // Bold text
-              color: "black", // Black color
               mt: 1, // Margin top for spacing between image and text
             }}
           >
@@ -43,7 +47,17 @@ const LoginSignupHeader = () => {
           </Typography>
         </Box>
         <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-          <Moon color="#000" />
+          <IconButton
+            color="inherit"
+            onClick={toggleColorMode}
+            sx={{
+              verticalAlign: "middle",
+              fontSize: "1.2rem",
+              color: "black",
+            }}
+          >
+            <Moon color={mode === "light" ? "#000" : "#511956"} />
+          </IconButton>
         </Box>
       </Box>
     </>

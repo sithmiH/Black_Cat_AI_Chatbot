@@ -11,8 +11,10 @@ import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import BlackCat from "../assets/BlackCat.png";
+import { useThemeContext } from "../contexts/themeContext";
 
 const Login = () => {
+  const { mode } = useThemeContext();
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
       <Box
@@ -26,20 +28,21 @@ const Login = () => {
           justifyContent: "flex-start",
           alignItems: "center",
           position: "relative",
-          padding: "70px 20px 0px 20px", // Added padding for content spacing
+          padding: "10px 20px 0px 20px", // Added padding for content spacing
         }}
       >
         {/* Login Form Section */}
         <Box
-          sx={{
+          sx={(theme) => ({
             maxWidth: 380,
-            backgroundColor: "#fff",
+            bgcolor: theme.palette.background.chat,
+            opacity: 0.9,
             borderRadius: 2,
             boxShadow: 3,
             padding: 4,
             marginY: 12,
             marginX: 4,
-          }}
+          })}
         >
           <Typography
             variant="h5"
@@ -58,16 +61,16 @@ const Login = () => {
             variant="outlined"
             startIcon={<GoogleIcon />}
             fullWidth
-            sx={{
+            sx={(theme) => ({
               mb: 2,
               justifyContent: "flex-start",
               borderRadius: "100px",
               borderColor: "black",
-              color: "black",
+              bgcolor: theme.palette.background.chatBubble,
               height: "50px",
               padding: "16px 12px",
               textTransform: "capitalize",
-            }}
+            })}
           >
             Google
           </Button>
@@ -75,16 +78,16 @@ const Login = () => {
             variant="outlined"
             startIcon={<AppleIcon />}
             fullWidth
-            sx={{
+            sx={(theme) => ({
               mb: 2,
               justifyContent: "flex-start",
               borderRadius: "100px",
               borderColor: "black",
-              color: "black",
+              bgcolor: theme.palette.background.chatBubble,
               height: "50px",
               padding: "16px 12px",
               textTransform: "capitalize",
-            }}
+            })}
           >
             Apple
           </Button>
@@ -92,17 +95,17 @@ const Login = () => {
             variant="outlined"
             startIcon={<AccountCircleOutlinedIcon />}
             fullWidth
-            sx={{
+            sx={(theme) => ({
               mb: 2,
               justifyContent: "flex-start",
               borderRadius: "100px",
               borderColor: "black",
-              color: "black",
+              bgcolor: theme.palette.background.chatBubble,
               height: "50px",
               padding: "16px 12px",
               textTransform: "capitalize",
               marginBottom: "-10px",
-            }}
+            })}
           >
             Microsoft
           </Button>
@@ -129,14 +132,7 @@ const Login = () => {
                 mx: 2,
               }}
             >
-              <Typography
-                variant="body2"
-                sx={{
-                  color: "black",
-                }}
-              >
-                or
-              </Typography>
+              <Typography variant="body2">or</Typography>
             </Box>
             <Divider sx={{ flex: 1 }} />
           </Box>
@@ -148,12 +144,13 @@ const Login = () => {
             type="email"
             placeholder="name@host.com"
             variant="outlined"
-            sx={{
+            sx={(theme) => ({
+              bgcolor: theme.palette.background.chatInput,
               mb: 2,
               "& .MuiOutlinedInput-root": {
                 borderRadius: "100px", // Rounded corners
               },
-            }}
+            })}
           />
 
           <TextField
@@ -195,9 +192,9 @@ const Login = () => {
             <Button
               variant="contained"
               sx={{
+                bgcolor: (theme) => theme.palette.background.button,
+                color: "white",
                 mb: 2,
-                backgroundColor: "black",
-                color: "#fff",
                 borderRadius: "60px",
                 borderWidth: "2px",
                 width: "30%",
@@ -220,13 +217,33 @@ const Login = () => {
               style={{
                 textDecoration: "none",
                 fontSize: 14,
-                color: "black",
                 fontWeight: "bold",
                 textDecoration: "underline",
+                color: mode === "light" ? "#000" : "#FFF",
               }}
             >
               Sign Up
             </a>
+          </Typography>
+        </Box>
+        <Box>
+          <Typography
+            variant="h3"
+            component="h1"
+            fontWeight="bold"
+            gutterBottom
+            color="white"
+            sx={{ textAlign: "center" }}
+          >
+            Master Math Instantly with Black Cat AI
+          </Typography>
+          <Typography
+            variant="subtitle1"
+            color="white"
+            sx={{ mb: 4, maxWidth: 600, mx: "auto", textAlign: "center" }}
+          >
+            Get accurate solutions to any math problem in seconds, powered by
+            advanced AI. Simple, fast, and reliable.
           </Typography>
         </Box>
       </Box>

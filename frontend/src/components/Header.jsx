@@ -120,7 +120,7 @@ const Header = () => {
             {location.pathname === "/" && (
               <IconButton
                 color="inherit"
-                onClick={handleMoonIconClick} // Handle the click event
+                onClick={handleMoonIconClick}
                 sx={{
                   verticalAlign: "middle",
                   fontSize: "1.2rem",
