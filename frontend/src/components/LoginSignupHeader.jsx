@@ -2,8 +2,10 @@ import { Box, Typography } from "@mui/material";
 import { Moon } from "iconsax-react";
 import { useThemeContext } from "../contexts/themeContext";
 import IconButton from "@mui/material/IconButton";
+import { useNavigate } from "react-router-dom";
 const LoginSignupHeader = () => {
   const { mode, toggleColorMode } = useThemeContext();
+  const navigate = useNavigate();
   return (
     <>
       <Box
@@ -41,7 +43,9 @@ const LoginSignupHeader = () => {
             sx={{
               fontWeight: "bold", // Bold text
               mt: 1, // Margin top for spacing between image and text
+              cursor: "pointer",
             }}
+            onClick={() => navigate("/")}
           >
             Black Cat
           </Typography>
