@@ -1,11 +1,4 @@
-import {
-  Box,
-  Typography,
-  TextField,
-  Button,
-  Divider,
-  IconButton,
-} from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Moon } from "iconsax-react";
 const LoginSignupHeader = () => {
   return (
@@ -14,12 +7,12 @@ const LoginSignupHeader = () => {
         sx={{
           position: "relative",
           display: "flex",
-          justifyContent: "space-between", // Space between elements
-          alignItems: "center", // Vertically align items
-          flexDirection: "row", // To stack image and text vertically
-          zIndex: 2, // Ensure it stays on top
+          justifyContent: "space-between",
+          alignItems: "center",
+          flexDirection: "row",
+          zIndex: 2,
           paddingX: 10,
-          paddingTop: 4,
+          paddingTop: 2,
         }}
       >
         <Box

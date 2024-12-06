@@ -23,7 +23,7 @@ export const getDesignTokens = (mode) => ({
           primary: {
             main: "#000", // Main property for the primary color
           },
-          divider: amber[200],
+          divider: "#BCBEC0",
           background: {
             default: "#fff",
             paper: "#f5f5f5",
@@ -47,7 +47,7 @@ export const getDesignTokens = (mode) => ({
           primary: {
             main: "#fff", // Main property for the primary color
           },
-          divider: deepOrange[700],
+          divider: "#212121",
           background: {
             default: "#141414",
             paper: "#1c1c1c",

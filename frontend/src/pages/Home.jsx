@@ -19,10 +19,11 @@ export const Home = () => {
     <Container maxWidth="lg">
       <Box
         sx={{
-          // minHeight: "100vh",
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           paddingY: 4,
+          paddingTop: { sm: 8, md: 12 },
         }}
       >
         {/* Header Section */}

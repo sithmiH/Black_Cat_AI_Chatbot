@@ -14,7 +14,7 @@ import BlackCat from "../assets/BlackCat.png";
 
 const Login = () => {
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <Container maxWidth="xl" sx={{ py: 4 }}>
       <Box
         sx={{
           minHeight: "100vh",
@@ -32,8 +32,7 @@ const Login = () => {
         {/* Login Form Section */}
         <Box
           sx={{
-            width: "100%",
-            maxWidth: 280,
+            maxWidth: 380,
             backgroundColor: "#fff",
             borderRadius: 2,
             boxShadow: 3,
