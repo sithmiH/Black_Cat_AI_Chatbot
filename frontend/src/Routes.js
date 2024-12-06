@@ -12,6 +12,7 @@ import LoginSignupLayout from "./components/layout/LoginSignupLayout";
 import GraphGenerate from "./pages/GraphGenerate";
 import EditScreen from "./pages/EditScreen";
 import Keyboard from "./pages/keyboard";
+import Voice from "./pages/Voice";
 
 const privateRouter = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const privateRouter = createBrowserRouter([
         path: "/",
         element: <ChatBoxLayout />,
         children: [{ path: "/keyboard", element: <Keyboard /> }],
+      },
+      {
+        path: "/",
+        element: <ChatBoxLayout />,
+        children: [{ path: "/voice", element: <Voice /> }],
       },
     ],
   },

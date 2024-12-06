@@ -1,10 +1,46 @@
 import React, { useState } from "react";
-import { Box, Typography, IconButton, Button, Grid } from "@mui/material";
+import {
+  Box,
+  Typography,
+  IconButton,
+  Button,
+  Grid,
+  TextField,
+  CircularProgress,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import SendIcon from "@mui/icons-material/Send";
+import Divider from "@mui/material/Divider";
+import ArticleIcon from "@mui/icons-material/Article";
 
 const Keyboard = () => {
   const [keyboardType, setKeyboardType] = useState("123"); // "123", "sin", "alpha"
+  const [input, setInput] = React.useState("");
+  const numbers = [
+    ["1", "2", "3", "4"],
+    ["5", "6", "7", "8"],
+    [null, "9", "0", null],
+  ];
+
+  const trigonometrics = [
+    ["sin", "cos", "tan", "sec"],
+    ["csc", "sinh", "cosh", "tanh"],
+    [null, "cot", "coth", null],
+  ];
+
+  const alpha = [
+    ["sin", "cos", "tan", "sec"],
+    ["csc", "sinh", "cosh", "tanh"],
+    [null, "cot", "coth", null],
+  ];
+
+  const handleButtonClick = (number) => {
+    setInput((prevInput) => prevInput + number);
+  };
+
+  const hadletrigonometrics = (trigonometric) => {
+    setInput((prevInput) => prevInput + trigonometric);
+  };
 
   // Handle keyboard switch
   const handleKeyboardSwitch = (type) => {
@@ -16,60 +52,117 @@ const Keyboard = () => {
     switch (keyboardType) {
       case "123":
         return (
-          <Grid container spacing={1} justifyContent="center">
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((key) => (
-              <Grid item xs={3} key={key}>
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    borderRadius: "12px",
-                    fontSize: "18px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {key}
-                </Button>
+          <Grid container spacing={0.5}>
+            {numbers.map((row, rowIndex) => (
+              <Grid
+                container
+                item
+                spacing={0.5}
+                key={rowIndex}
+                justifyContent="center"
+              >
+                {row.map((number, colIndex) => (
+                  <Grid item key={colIndex}>
+                    {number ? (
+                      <Button
+                        color="black"
+                        variant="outlined"
+                        onClick={() => handleButtonClick(number)}
+                        sx={{
+                          minWidth: 30,
+                          minHeight: 30,
+                          maxWidth: 30,
+                          maxHeight: 30,
+                          fontSize: "1.1rem",
+                          borderRadius: "20%",
+                          borderColor: "#BABABA",
+                        }}
+                      >
+                        {number}
+                      </Button>
+                    ) : (
+                      <Box sx={{ width: 20, height: 20 }} />
+                    )}
+                  </Grid>
+                ))}
               </Grid>
             ))}
           </Grid>
         );
       case "sin":
         return (
-          <Grid container spacing={1} justifyContent="center">
-            {["sin", "cos", "tan", "log", "sqrt"].map((key) => (
-              <Grid item xs={4} key={key}>
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    borderRadius: "12px",
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {key}
-                </Button>
+          <Grid container spacing={0.5}>
+            {trigonometrics.map((row, rowIndex) => (
+              <Grid
+                container
+                item
+                spacing={0.5}
+                key={rowIndex}
+                justifyContent="center"
+              >
+                {row.map((trigonometric, colIndex) => (
+                  <Grid item key={colIndex}>
+                    {trigonometric ? (
+                      <Button
+                        color="black"
+                        variant="outlined"
+                        onClick={() => hadletrigonometrics(trigonometric)}
+                        sx={{
+                          minWidth: 30,
+                          minHeight: 30,
+                          maxWidth: 30,
+                          maxHeight: 30,
+                          fontSize: "0.65rem",
+                          borderRadius: "20%",
+                          borderColor: "#BABABA",
+                        }}
+                      >
+                        {trigonometric.toLowerCase()}
+                      </Button>
+                    ) : (
+                      <Box sx={{ width: 20, height: 20 }} />
+                    )}
+                  </Grid>
+                ))}
               </Grid>
             ))}
           </Grid>
         );
       case "alpha":
         return (
-          <Grid container spacing={1} justifyContent="center">
-            {["α", "β", "γ", "π", "θ"].map((key) => (
-              <Grid item xs={4} key={key}>
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  sx={{
-                    borderRadius: "12px",
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                  }}
-                >
-                  {key}
-                </Button>
+          <Grid container spacing={0.5}>
+            {alpha.map((row, rowIndex) => (
+              <Grid
+                container
+                item
+                spacing={0.5}
+                key={rowIndex}
+                justifyContent="center"
+              >
+                {row.map((number, colIndex) => (
+                  <Grid item key={colIndex}>
+                    {number ? (
+                      <Button
+                        color="black"
+                        variant="outlined"
+                        onClick={() => handleButtonClick(number)}
+                        sx={{
+                          minWidth: 30,
+                          minHeight: 30,
+                          maxWidth: 30,
+                          maxHeight: 30,
+                          fontSize: "0.65rem",
+                          borderRadius: "20%",
+                          borderColor: "#BABABA",
+                        }}
+                      >
+                        {number}
+                      </Button>
+                    ) : (
+                      <Box sx={{ width: 20, height: 20 }} />
+                    )}
+                  </Grid>
+                ))}
               </Grid>
             ))}
           </Grid>
@@ -80,76 +173,208 @@ const Keyboard = () => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        bgcolor: "#F8F8F8",
-        borderRadius: "16px",
-        // boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
-        height: "80vh",
-        padding: 2,
-        maxWidth: "400px",
-        backgroundColor:"red",
-        margin: "0 auto", // Center the component on the page
-      }}
-    >
+    <>
+      <Box
+        sx={{
+          bgcolor: "white",
+          borderRadius: "16px",
+          boxShadow: 0,
+          border: "2px solid #EAEAEA",
+          padding: 3,
+          marginBottom: 3,
+          display: "flex",
+          height: 300,
+          flexDirection: "column",
+          overflowY: "auto", // Ensure content inside can scroll
+          // backgroundColor:"yellow"
+        }}
+      >
+        <Box
+          sx={{
+            bgcolor: "#EAEAEA", // Background color
+            borderRadius: "50px 50px 0px 50px", // Rounded edges
+            border: "2px solid #FFFFFF", // Border with white color
+            display: "flex",
+            alignItems: "left",
+            justifyContent: "center",
+            mt: 1, // Margin on top for spacing
+            ml: "auto", // Align bubble to the right
+            width: "70%",
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              textAlign: "left",
+              fontSize: "14px",
+              color: "#000", // Black text color
+              paddingX: 5, // Add padding inside bubble
+              margin: 2,
+            }}
+          >
+            A person standing on top of a lighthouse of height 20 meters
+            observes a boat in the sea at an angle of depression of 30. Using
+            tan(60) calculate the distance of the boat from the base of the
+            lighthouse.
+          </Typography>
+        </Box>
+        <Box
+          sx={{
+            width: 171,
+            height: 56, // Chat bubble height
+            bgcolor: "rgba(49, 49, 50, 0.06)", // #313132 with 6% opacity
+            borderRadius: "50px 50px 50px 0px",
+            border: "2px solid #EAEAEA", // Border with white color
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            mt: 1, // Margin on top for spacing
+            mr: "auto", // Align bubble to the left
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              textAlign: "center",
+              fontSize: "14px",
+              color: "#BABABA",
+              paddingX: 2,
+            }}
+          >
+            Almost there
+          </Typography>
+          <CircularProgress size={20} color="#EAEAEA" />
+        </Box>
+      </Box>
       {/* Header Section */}
       <Box
         sx={{
           display: "flex",
+          flexDirection: "column",
           justifyContent: "space-between",
           alignItems: "center",
-          // bgcolor: "#FFFFFF",
           padding: 2,
           borderRadius: "12px",
           boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-          backgroundColor:"blue",
+          backgroundColor: "#E7E7E8", // Set the background color
         }}
       >
-        <IconButton>
-          <MenuIcon />
-        </IconButton>
-        <Box sx={{ display: "flex", gap: 2 }}>
-          {["123", "sin", "alpha"].map((key) => (
-            <Typography
-              key={key}
-              onClick={() => handleKeyboardSwitch(key)}
-              sx={{
-                fontSize: 16,
-                fontWeight: key === keyboardType ? "bold" : "normal",
-                textDecoration: key === keyboardType ? "underline" : "none",
-                cursor: "pointer",
-                backgroundColor:"green",
-              }}
-            >
-              {key}
-            </Typography>
-          ))}
+        {/* Icons Section */}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            width: "100%", // Full width for spacing adjustment
+            marginBottom: 2,
+          }}
+        >
+          <IconButton>
+            <ArticleIcon />
+          </IconButton>
+          <TextField
+            fullWidth
+            id="standard-basic"
+            value={input}
+            variant="standard"
+            onChange={(e) => setInput(e.target.value)}
+            sx={{
+              "& .MuiInput-underline:before": {
+                borderBottomColor: "gray", // Default border color
+              },
+              "& .MuiInput-underline:hover:not(.Mui-disabled):before": {
+                borderBottomColor: "lightgray", // Border color on hover
+              },
+              "& .MuiInput-underline:after": {
+                borderBottomColor: "lightgray", // Border color when focused
+              },
+              "& .MuiInputBase-input": {
+                color: "black", // Text color
+              },
+              "& .MuiOutlinedInput-root": {
+                backgroundColor: "lightgray", // Default background color
+                "&:hover fieldset": {
+                  borderColor: "lightgray", // Border on hover
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "lightgray", // Border color when focused
+                },
+              },
+            }}
+          />
+          <IconButton>
+            <SendIcon />
+          </IconButton>
         </Box>
-        <IconButton>
-          <SendIcon />
-        </IconButton>
-      </Box>
 
-      {/* Keyboard Section */}
-      <Box
-        sx={{
-          // bgcolor: "#FFFFFF",
-          backgroundColor:"yellow",
-          padding: 2,
-          borderRadius: "12px",
-          mt: 42,
-          flexGrow: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        {renderKeyboard()}
+        <Box
+          sx={{
+            backgroundColor: "#fff",
+            width: "100%",
+            // padding: 2,
+            // marginX:5,
+            borderRadius: "12px",
+          }}
+        >
+          {/* Keyboard Switch Buttons */}
+          <Box
+            sx={{
+              display: "flex",
+              gap: 2,
+              padding: 2,
+              width: "fit-content",
+              margin: "auto",
+            }}
+          >
+            {["123", "sin", "alpha"].map((key) => (
+              <Typography
+                key={key}
+                onClick={() => handleKeyboardSwitch(key)}
+                sx={{
+                  fontSize: 16,
+                  fontWeight: key === keyboardType ? "bold" : "normal",
+                  // textDecoration: key === keyboardType ? "underline" : "none",
+                  cursor: "pointer",
+                  // backgroundColor: "green",
+                }}
+              >
+                {key}
+              </Typography>
+            ))}
+          </Box>
+          <Divider
+            sx={{
+              width: "auto",
+              marginY: 1,
+              marginX: 2,
+              backgroundColor: "lightgray",
+              borderColor: "lightgray",
+            }}
+          />
+
+          <Box
+            sx={{
+              // bgcolor: "#FFFFFF",
+              // backgroundColor: "yellow",
+              // padding: 2,
+              // borderRadius: "12px",
+              // // mt: 42,
+              // flexGrow: 1,
+              // display: "flex",
+              // flexDirection: "row",
+              // justifyContent: "center",
+              // width: "40%",
+              // margin: "auto", // Center the box horizontally
+              width: "fit-content",
+              margin: "auto",
+              padding: 2,
+            }}
+          >
+            {renderKeyboard()}
+          </Box>
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 
