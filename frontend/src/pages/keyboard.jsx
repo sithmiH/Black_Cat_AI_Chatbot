@@ -8,6 +8,7 @@ import {
   TextField,
   CircularProgress,
 } from "@mui/material";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import MenuIcon from "@mui/icons-material/Menu";
 import SendIcon from "@mui/icons-material/Send";
 import Divider from "@mui/material/Divider";
@@ -44,9 +45,15 @@ const Keyboard = () => {
 
   // Handle keyboard switch
   const handleKeyboardSwitch = (type) => {
-    setKeyboardType(type);
+    if (type === "graph") {
+      navigate("/graphCreate"); // Navigate to /graphCreate page
+    } else {
+      setKeyboardType(type);
+    }
   };
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
+  
   // Render keyboard buttons dynamically based on type
   const renderKeyboard = () => {
     switch (keyboardType) {
@@ -230,6 +237,7 @@ const Keyboard = () => {
             justifyContent: "center",
             mt: 1, // Margin on top for spacing
             mr: "auto", // Align bubble to the left
+
           }}
         >
           <Typography
@@ -249,6 +257,7 @@ const Keyboard = () => {
       {/* Header Section */}
       <Box
         sx={{
+          // backgroundColor:"blue",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -326,7 +335,7 @@ const Keyboard = () => {
               margin: "auto",
             }}
           >
-            {["123", "sin", "alpha"].map((key) => (
+            {["123", "sin", "alpha","graph"].map((key) => (
               <Typography
                 key={key}
                 onClick={() => handleKeyboardSwitch(key)}
@@ -342,29 +351,11 @@ const Keyboard = () => {
               </Typography>
             ))}
           </Box>
-          <Divider
-            sx={{
-              width: "auto",
-              marginY: 1,
-              marginX: 2,
-              backgroundColor: "lightgray",
-              borderColor: "lightgray",
-            }}
-          />
 
+          <Divider sx={{ width: "auto", marginY: 1, marginX: 2,backgroundColor: "lightgray",
+                           borderColor: "lightgray", }} />
           <Box
             sx={{
-              // bgcolor: "#FFFFFF",
-              // backgroundColor: "yellow",
-              // padding: 2,
-              // borderRadius: "12px",
-              // // mt: 42,
-              // flexGrow: 1,
-              // display: "flex",
-              // flexDirection: "row",
-              // justifyContent: "center",
-              // width: "40%",
-              // margin: "auto", // Center the box horizontally
               width: "fit-content",
               margin: "auto",
               padding: 2,
