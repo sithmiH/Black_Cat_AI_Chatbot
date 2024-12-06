@@ -13,7 +13,7 @@ import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
 import { Moon } from "iconsax-react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useThemeContext } from "../contexts/themeContext";
 
 // Assuming your image is in the 'assets' folder and named 'Group.png'
@@ -28,9 +28,9 @@ const navItems = [
 
 const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { mode, toggleColorMode } = useThemeContext();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false); // Add state for dark mode
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -65,6 +65,7 @@ const Header = () => {
         sx={{
           color: "black",
           boxShadow: "none",
+          position: "relative",
         }}
         color="transparent"
       >
@@ -116,18 +117,19 @@ const Header = () => {
               gap: 2,
             }}
           >
-            {/* Make the moon icon clickable */}
-            <IconButton
-              color="inherit"
-              onClick={handleMoonIconClick} // Handle the click event
-              sx={{
-                verticalAlign: "middle",
-                fontSize: "1.2rem",
-                color: "black",
-              }}
-            >
-              <Moon color={mode === "light" ? "#000" : "#511956"} />
-            </IconButton>
+            {location.pathname === "/" && (
+              <IconButton
+                color="inherit"
+                onClick={handleMoonIconClick} // Handle the click event
+                sx={{
+                  verticalAlign: "middle",
+                  fontSize: "1.2rem",
+                  color: "black",
+                }}
+              >
+                <Moon color={mode === "light" ? "#000" : "#511956"} />
+              </IconButton>
+            )}
             {navItems.slice(0, -1).map((item) => (
               <Button
                 key={item.name}
