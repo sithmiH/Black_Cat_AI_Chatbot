@@ -307,13 +307,13 @@ export default function GraphCreate() {
             backgroundColor: "white",
             width: "90%",
             borderRadius: "8px",
-            margin: 2,
+            margin: 1,
           }}
         >
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "repeat(3, 0fr)",
+              gridTemplateColumns: "repeat(6, 0fr)",
               justifyContent: "flex-start",
               alignItems: "center",
               padding: 2,
@@ -371,10 +371,12 @@ export default function GraphCreate() {
           <ToggleButtonGroup
             value={formats}
             onChange={handleFormat}
-            aria-label="text formatting"
-            sx={{ margin: 2, borderColor: "lightgray",}}
+            // aria-label="text formatting"
+            sx={{ margin: 1, borderColor: "lightgray",}}
           >
-            <ToggleButton value="bold" aria-label="bold">
+            <ToggleButton value="bold" aria-label="bold" sx={{
+                borderColor: "lightgray"
+            }}>
               <AdsClickIcon />
             </ToggleButton>
             <ToggleButton value="italic" aria-label="italic" disabled>
