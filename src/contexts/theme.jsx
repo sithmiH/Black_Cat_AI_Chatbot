@@ -1,3 +1,5 @@
+import { amber, deepOrange } from "@mui/material/colors";
+
 // const theme = {
 //   typography: {
 //     fontFamily: ["Outfit", "sans-serif"].join(","),

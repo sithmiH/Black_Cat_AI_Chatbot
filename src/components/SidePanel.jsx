@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Typography,
@@ -7,7 +7,10 @@ import {
   ListItem,
   ListItemText,
   IconButton,
+  Card,
   Button,
+  Divider,
+  TextField,
 } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
@@ -20,7 +23,7 @@ import { useSidePanel } from "./layout/ChatBoxLayout";
 const SidePanel = () => {
   // State for managing the input field value
   const { mode, toggleColorMode } = useThemeContext();
-  const { setShowPanel } = useSidePanel();
+  const { showPanel, setShowPanel } = useSidePanel();
 
   return (
     <Box
