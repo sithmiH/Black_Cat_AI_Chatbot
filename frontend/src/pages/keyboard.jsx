@@ -174,23 +174,23 @@ const Keyboard = () => {
   return (
     <>
       <Box
-        sx={{
-          bgcolor: "white",
+        sx={(theme) => ({
+          bgcolor: theme.palette.background.chat,
           borderRadius: "16px",
           boxShadow: 0,
-          border: "2px solid #EAEAEA",
+          border: `2px solid ${theme.palette.border.main}`,
           padding: 3,
           marginBottom: 3,
           display: "flex",
-          height: 300,
+          height: "50vh",
           flexDirection: "column",
           overflowY: "auto", // Ensure content inside can scroll
           // backgroundColor:"yellow"
-        }}
+        })}
       >
         <Box
-          sx={{
-            bgcolor: "#EAEAEA", // Background color
+          sx={(theme) => ({
+            bgcolor: theme.palette.background.chatBubble,
             borderRadius: "50px 50px 0px 50px", // Rounded edges
             border: "2px solid #FFFFFF", // Border with white color
             display: "flex",
@@ -199,14 +199,13 @@ const Keyboard = () => {
             mt: 1, // Margin on top for spacing
             ml: "auto", // Align bubble to the right
             width: "70%",
-          }}
+          })}
         >
           <Typography
             variant="body2"
             sx={{
               textAlign: "left",
               fontSize: "14px",
-              color: "#000", // Black text color
               paddingX: 5, // Add padding inside bubble
               margin: 2,
             }}
@@ -218,18 +217,17 @@ const Keyboard = () => {
           </Typography>
         </Box>
         <Box
-          sx={{
-            width: 171,
-            height: 56, // Chat bubble height
-            bgcolor: "rgba(49, 49, 50, 0.06)", // #313132 with 6% opacity
+          sx={(theme) => ({
+            bgcolor: theme.palette.background.chat,
             borderRadius: "50px 50px 50px 0px",
-            border: "2px solid #EAEAEA", // Border with white color
+            border: "2px solid #EAEAEA",
             display: "flex",
             alignItems: "center",
+            padding: 2,
             justifyContent: "center",
-            mt: 1, // Margin on top for spacing
-            mr: "auto", // Align bubble to the left
-          }}
+            mt: 1,
+            mr: "auto",
+          })}
         >
           <Typography
             variant="body2"
@@ -247,16 +245,16 @@ const Keyboard = () => {
       </Box>
       {/* Header Section */}
       <Box
-        sx={{
+        sx={(theme) => ({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           alignItems: "center",
-          padding: 2,
+          paddingX: 2,
           borderRadius: "12px",
           boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-          backgroundColor: "#E7E7E8", // Set the background color
-        }}
+          bgcolor: theme.palette.background.chat,
+        })}
       >
         {/* Icons Section */}
         <Box
@@ -276,8 +274,13 @@ const Keyboard = () => {
             id="standard-basic"
             value={input}
             variant="standard"
+            slotProps={{
+              input: {
+                disableUnderline: true,
+              },
+            }}
             onChange={(e) => setInput(e.target.value)}
-            sx={{
+            sx={(theme) => ({
               "& .MuiInput-underline:before": {
                 borderBottomColor: "gray", // Default border color
               },
@@ -288,7 +291,7 @@ const Keyboard = () => {
                 borderBottomColor: "lightgray", // Border color when focused
               },
               "& .MuiInputBase-input": {
-                color: "black", // Text color
+                color: theme.palette.text.primary, // Text color
               },
               "& .MuiOutlinedInput-root": {
                 backgroundColor: "lightgray", // Default background color
@@ -299,7 +302,7 @@ const Keyboard = () => {
                   borderColor: "lightgray", // Border color when focused
                 },
               },
-            }}
+            })}
           />
           <IconButton>
             <SendIcon />
@@ -307,13 +310,13 @@ const Keyboard = () => {
         </Box>
 
         <Box
-          sx={{
-            backgroundColor: "#fff",
+          sx={(theme) => ({
+            bgcolor: theme.palette.background.default,
             width: "100%",
             // padding: 2,
             // marginX:5,
             borderRadius: "12px",
-          }}
+          })}
         >
           {/* Keyboard Switch Buttons */}
           <Box
