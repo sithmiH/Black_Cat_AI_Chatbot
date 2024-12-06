@@ -1,9 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import LoginSignupHeader from "../LoginSignupHeader";
+import Footer from "../Footer";
 const LoginSignupLayout = () => (
   <>
-    {/* <LoginSignupHeader /> */}
+    <LoginSignupHeader />
     <Outlet />
+    <Footer />
   </>
 );
 
