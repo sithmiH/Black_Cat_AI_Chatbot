@@ -12,7 +12,7 @@ const MainContainer = styled(Box)(({ theme }) => ({
   width: "100%",
   background:
     theme.palette.mode === "dark"
-      ? "linear-gradient(135deg, #13111C 0%, #241D3B 100%)" // Dark mode gradient
+      ? "linear-gradient(150deg, #000002 40%, #2e0a1f 90%)" // Dark mode gradient
       : "linear-gradient(135deg, #F8F9FE 0%, #FFFFFF 100%)", // Light mode gradient
   transition: "background 0.3s ease",
 }));

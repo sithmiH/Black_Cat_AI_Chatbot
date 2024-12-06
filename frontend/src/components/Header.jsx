@@ -42,7 +42,7 @@ const Header = () => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography variant="h6" sx={{ my: 2 }} color="primary">
         Black Cat
       </Typography>
       <Divider />
@@ -99,9 +99,9 @@ const Header = () => {
           <Typography
             variant="h6"
             component="div"
+            color="primary"
             sx={{
               flexGrow: 1,
-              color: "primary",
               fontWeight: 1000, // Increased boldness for "Black Cat"
               fontFamily: "Outfit",
               display: { xs: "none", sm: "block" },
@@ -126,7 +126,7 @@ const Header = () => {
                 color: "black",
               }}
             >
-              <Moon color="#000" />
+              <Moon color={mode === "light" ? "#000" : "#511956"} />
             </IconButton>
             {navItems.slice(0, -1).map((item) => (
               <Button

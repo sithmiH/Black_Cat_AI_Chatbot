@@ -90,6 +90,7 @@ export const Home = () => {
             mb: 8,
             width: "100%", // Set width here (increase as needed)
             mx: "auto", // Center the box horizontally
+            backdropFilter: "blur(8px)",
           }}
         >
           <Grid container spacing={2} justifyContent="center">
