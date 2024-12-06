@@ -10,8 +10,10 @@ import {
   IconButton,
 } from "@mui/material";
 import { AttachCircle, Microphone2, Keyboard, Magicpen } from "iconsax-react";
+import { useThemeContext } from "../contexts/themeContext";
 
 export const Home = () => {
+  const { mode } = useThemeContext();
   const navigate = useNavigate();
   return (
     <Container maxWidth="lg">
@@ -191,7 +193,10 @@ export const Home = () => {
         {/* Icons Section */}
         <Box sx={{ display: "flex", justifyContent: "center", gap: 3, mb: 2 }}>
           <IconButton>
-            <Magicpen color="#000" variant="Bold" />
+            <Magicpen
+              color={mode === "light" ? "#000" : "#EAEAEA"}
+              variant="Bold"
+            />
           </IconButton>
           <IconButton>
             <Keyboard color="#000" />

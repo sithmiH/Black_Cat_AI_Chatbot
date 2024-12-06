@@ -1,15 +1,15 @@
 import { amber, deepOrange } from "@mui/material/colors";
 
-const theme = {
-  typography: {
-    fontFamily: ["Outfit", "sans-serif"].join(","),
-  },
-  palette: {
-    primary: {
-      main: amber[500], // Use a valid MUI color object
-    },
-  },
-};
+// const theme = {
+//   typography: {
+//     fontFamily: ["Outfit", "sans-serif"].join(","),
+//   },
+//   palette: {
+//     primary: {
+//       main: amber[500], // Use a valid MUI color object
+//     },
+//   },
+// };
 
 export const getDesignTokens = (mode) => ({
   typography: {
@@ -52,4 +52,4 @@ export const getDesignTokens = (mode) => ({
   },
 });
 
-export default theme;
+// export default theme;
