@@ -4,8 +4,10 @@ import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import SendIcon from "@mui/icons-material/SendRounded";
 import StopIcon from "@mui/icons-material/StopCircleOutlined";
 import { Magicpen, Keyboard, AttachCircle, Microphone2 } from "iconsax-react";
+import { useNavigate } from "react-router-dom";
 
 const Voice = () => {
+  const navigate = useNavigate();
   const [inputMessage, setInputMessage] = useState("");
 
   const handleSendMessage = () => {
@@ -219,13 +221,13 @@ const Voice = () => {
         </Box>
 
         <Box sx={{ display: "flex", gap: 2 }}>
-          <IconButton>
+          <IconButton onClick={() => navigate("/chat/magicPen")}>
             <Magicpen color="#D4D4D4" />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => navigate("/chat/keyboard")}>
             <Keyboard color="#D4D4D4" />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => navigate("/chat/upload")}>
             <AttachCircle color="#D4D4D4" />
           </IconButton>
 

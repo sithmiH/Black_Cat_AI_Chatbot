@@ -196,7 +196,7 @@ export const Home = () => {
 
         {/* Icons Section */}
         <Box sx={{ display: "flex", justifyContent: "center", gap: 3, mb: 2 }}>
-          <IconButton>
+          <IconButton onClick={() => navigate("/chat/magicPen")}>
             <Magicpen
               color={mode === "light" ? "#000" : "#EAEAEA"}
               variant="Bold"

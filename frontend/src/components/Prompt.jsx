@@ -1,20 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, TextField, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/SendRounded";
 import StopIcon from "@mui/icons-material/StopCircleOutlined";
 import { useThemeContext } from "../contexts/themeContext";
 import { Magicpen, Keyboard, AttachCircle, Microphone2 } from "iconsax-react";
+import { useNavigate } from "react-router-dom";
 
-const Prompt = () => {
+const Prompt = ({ inputMessage, setInputMessage, handleSendMessage }) => {
   const { mode } = useThemeContext();
-  const [inputMessage, setInputMessage] = useState("");
-
-  const handleSendMessage = () => {
-    if (inputMessage.trim()) {
-      console.log(inputMessage);
-      setInputMessage("");
-    }
-  };
+  const navigate = useNavigate();
 
   return (
     <Box
@@ -51,16 +45,16 @@ const Prompt = () => {
       />
 
       <Box sx={{ display: "flex", gap: 2 }}>
-        <IconButton>
+        <IconButton onClick={() => navigate("/chat/magicPen")}>
           <Magicpen color="#D4D4D4" />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => navigate("/chat/keyboard")}>
           <Keyboard color="#D4D4D4" />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => navigate("/chat/upload")}>
           <AttachCircle color="#D4D4D4" />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={() => navigate("/chat/voice")}>
           <Microphone2 color="#D4D4D4" />
         </IconButton>
         <IconButton color="primary" onClick={handleSendMessage}>

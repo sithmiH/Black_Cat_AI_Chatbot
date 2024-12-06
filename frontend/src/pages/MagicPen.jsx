@@ -1,17 +1,8 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  IconButton,
-  Button,
-  Grid,
-  TextField,
-  CircularProgress,
-} from "@mui/material";
+import React from "react";
+import { Box, Typography, IconButton, CircularProgress } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import Divider from "@mui/material/Divider";
 import AutoFixHighIcon from "@mui/icons-material/AutoFixHigh";
-import BlackCat from "../assets/BlackCat.png";
 import MagicPenimage from "../assets/MagicPenimage.png";
 
 export const MagicPen = () => {
@@ -26,10 +17,10 @@ export const MagicPen = () => {
           padding: 3,
           marginBottom: 3,
           display: "flex",
-        //   height: 100,
+          //   height: 100,
           flexDirection: "column",
           overflowY: "auto", // Ensure content inside can scroll
-            // backgroundColor: "yellow",
+          // backgroundColor: "yellow",
         }}
       >
         <Box
@@ -57,7 +48,7 @@ export const MagicPen = () => {
           >
             Analyzing Equation
           </Typography>
-          <CircularProgress  size={20} color="#EAEAEA" />
+          <CircularProgress size={20} color="#EAEAEA" />
         </Box>
       </Box>
 
@@ -71,9 +62,8 @@ export const MagicPen = () => {
           borderRadius: "12px",
           boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
           marginBottom: "100px",
-          backgroundColor: "#E7E7E8", 
-        //   backgroundColor: "green", 
-
+          backgroundColor: "#E7E7E8",
+          //   backgroundColor: "green",
         }}
       >
         <Box
@@ -83,16 +73,15 @@ export const MagicPen = () => {
             alignItems: "center",
             width: "100%", // Full width for spacing adjustment
             marginBottom: 0,
-            // backgroundColor: "blue", 
-
+            // backgroundColor: "blue",
           }}
         >
           <IconButton>
             <AutoFixHighIcon />
           </IconButton>
           <IconButton>
-          <SendIcon />
-        </IconButton>
+            <SendIcon />
+          </IconButton>
         </Box>
 
         <Divider sx={{ width: "auto", marginY: 1, marginX: 2 }} />
@@ -111,9 +100,9 @@ export const MagicPen = () => {
               backgroundPosition: "center",
               borderRadius: 2,
               display: "flex",
-            //   justifyContent: "flex-start",
+              //   justifyContent: "flex-start",
               alignItems: "center",
-            //   position: "relative",
+              //   position: "relative",
               height: 250, // Set a height for the image box
             }}
           ></Box>

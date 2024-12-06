@@ -1,21 +1,10 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Box,
-  Typography,
-  Paper,
-  CircularProgress,
-  TextField,
-  IconButton,
-} from "@mui/material";
-import SendIcon from "@mui/icons-material/SendRounded";
-import StopIcon from "@mui/icons-material/StopCircleOutlined";
-import { Magicpen, Keyboard, AttachCircle, Microphone2 } from "iconsax-react";
-import { useThemeContext } from "../contexts/themeContext";
+import { Box, Typography, Paper, CircularProgress } from "@mui/material";
+import Prompt from "../components/Prompt";
 
 const ChatScreen = () => {
   const navigate = useNavigate();
-  const { mode } = useThemeContext();
   const [inputMessage, setInputMessage] = useState("");
   const [messages, setMessages] = useState([
     { type: "user", text: "If 3x+5=17, what is the value of x?" },
@@ -39,7 +28,7 @@ const ChatScreen = () => {
     { type: "user", text: "Expand each step with examples" },
   ]);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = useCallback(() => {
     if (inputMessage.trim()) {
       setMessages([
         ...messages,
@@ -71,7 +60,7 @@ const ChatScreen = () => {
         });
       }, 3000);
     }
-  };
+  }, [inputMessage, messages]);
   return (
     <>
       <Box
@@ -226,52 +215,11 @@ const ChatScreen = () => {
           )}
         </Box>
       </Box>
-
-      <Box
-        sx={(theme) => ({
-          display: "flex",
-          alignItems: "center",
-          bgcolor: theme.palette.background.chatInput,
-          borderRadius: "24px",
-          justifyContent: "space-between",
-          padding: 2,
-          marginY: 6,
-        })}
-      >
-        <IconButton>
-          <StopIcon
-            sx={{ fontSize: 42, color: mode === "light" ? "#000" : "#FFF" }}
-          />
-        </IconButton>
-
-        <TextField
-          fullWidth
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-          placeholder="Type a message"
-          variant="standard"
-          sx={{ marginRight: 1 }}
-          slotProps={{ input: { disableUnderline: true } }}
-        />
-
-        <Box sx={{ display: "flex", gap: 2 }}>
-          <IconButton>
-            <Magicpen color="#D4D4D4" />
-          </IconButton>
-          <IconButton>
-            <Keyboard color="#D4D4D4" />
-          </IconButton>
-          <IconButton>
-            <AttachCircle color="#D4D4D4" />
-          </IconButton>
-          <IconButton>
-            <Microphone2 color="#D4D4D4" />
-          </IconButton>
-          <IconButton color="primary" onClick={handleSendMessage}>
-            <SendIcon sx={{ fontSize: 24, color: "#D4D4D4" }} />
-          </IconButton>
-        </Box>
-      </Box>
+      <Prompt
+        inputMessage={inputMessage}
+        setInputMessage={setInputMessage}
+        handleSendMessage={handleSendMessage}
+      />
     </>
   );
 };

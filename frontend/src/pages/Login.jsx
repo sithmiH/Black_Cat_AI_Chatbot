@@ -12,8 +12,10 @@ import AppleIcon from "@mui/icons-material/Apple";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import BlackCat from "../assets/BlackCat.png";
 import { useThemeContext } from "../contexts/themeContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const { mode } = useThemeContext();
   return (
     <Container maxWidth="xl" sx={{ py: 4 }}>
@@ -201,6 +203,7 @@ const Login = () => {
                 fontFamily: "Outfit",
                 textTransform: "capitalize",
               }}
+              onClick={() => navigate("/")}
             >
               Login
             </Button>

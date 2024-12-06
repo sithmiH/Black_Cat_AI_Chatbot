@@ -154,7 +154,10 @@ const SidePanel = () => {
 
       <Box display="flex" alignItems="center">
         <Avatar sx={{ bgcolor: "#ff5722", marginRight: 2 }}>D</Avatar>
-        <Typography variant="body1" sx={{ flexGrow: 1, fontWeight: "bold" }}>
+        <Typography
+          variant="body1"
+          sx={{ textAlign: "left", fontWeight: "bold" }}
+        >
           Dewni J
         </Typography>
       </Box>

@@ -1,11 +1,19 @@
 import React from "react";
 
-import { Box, Typography, Paper, CircularProgress } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Paper,
+  CircularProgress,
+  IconButton,
+} from "@mui/material";
 import { Send } from "iconsax-react";
 
 import Prompt from "../components/Prompt";
+import { useNavigate } from "react-router-dom";
 
 const EditScreen = () => {
+  const navigate = useNavigate();
   return (
     <>
       {/* Chat Box Content */}
@@ -49,9 +57,10 @@ const EditScreen = () => {
             }}
           >
             Edit message
-          </Typography
-          >
-          <Send size={24} color="#313132" />
+          </Typography>
+          <IconButton onClick={() => navigate("/chat/GraphGenerate")}>
+            <Send size={24} color="#313132" />
+          </IconButton>
         </Box>
 
         {/* Response */}

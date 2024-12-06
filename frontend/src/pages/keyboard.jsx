@@ -45,7 +45,7 @@ const Keyboard = () => {
   // Handle keyboard switch
   const handleKeyboardSwitch = (type) => {
     if (type === "graph") {
-      navigate("/graphCreate"); // Navigate to /graphCreate page
+      navigate("/chat/GraphCreate"); // Navigate to /graphCreate page
     } else {
       setKeyboardType(type);
     }

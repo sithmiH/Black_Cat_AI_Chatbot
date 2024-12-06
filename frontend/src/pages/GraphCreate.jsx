@@ -1,13 +1,5 @@
-import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  IconButton,
-  Button,
-  Grid,
-  TextField,
-  CircularProgress,
-} from "@mui/material";
+import React from "react";
+import { Box, Typography, IconButton, CircularProgress } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import Divider from "@mui/material/Divider";
 import { ScatterChart } from "@mui/x-charts/ScatterChart";
@@ -205,7 +197,7 @@ export default function GraphCreate() {
           padding: 3,
           marginBottom: 3,
           display: "flex",
-        //   height: 200,
+          //   height: 200,
           flexDirection: "column",
           overflowY: "auto", // Ensure content inside can scroll
           //   backgroundColor: "yellow",
@@ -300,8 +292,15 @@ export default function GraphCreate() {
             <SendIcon />
           </IconButton>
         </Box>
-        <Divider sx={{ width: "auto", marginY: 1, marginX: 2,backgroundColor: "lightgray",
-                           borderColor: "lightgray", }} />
+        <Divider
+          sx={{
+            width: "auto",
+            marginY: 1,
+            marginX: 2,
+            backgroundColor: "lightgray",
+            borderColor: "lightgray",
+          }}
+        />
         <Box
           sx={{
             backgroundColor: "white",
@@ -372,11 +371,15 @@ export default function GraphCreate() {
             value={formats}
             onChange={handleFormat}
             // aria-label="text formatting"
-            sx={{ margin: 1, borderColor: "lightgray",}}
+            sx={{ margin: 1, borderColor: "lightgray" }}
           >
-            <ToggleButton value="bold" aria-label="bold" sx={{
-                borderColor: "lightgray"
-            }}>
+            <ToggleButton
+              value="bold"
+              aria-label="bold"
+              sx={{
+                borderColor: "lightgray",
+              }}
+            >
               <AdsClickIcon />
             </ToggleButton>
             <ToggleButton value="italic" aria-label="italic" disabled>
