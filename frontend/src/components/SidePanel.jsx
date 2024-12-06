@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Typography,
@@ -14,29 +14,28 @@ import {
 } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
-import MoreVertIcon from "@mui/icons-material/ViewSidebarRounded";
-import NightsStayIcon from "@mui/icons-material/NightsStay";
+import { Moon } from "iconsax-react";
+import { Element2 } from "iconsax-react";
+import { useThemeContext } from "../contexts/themeContext";
+import { Game } from "iconsax-react";
+import { useSidePanel } from "./layout/ChatBoxLayout";
 
 const SidePanel = () => {
   // State for managing the input field value
-  const [inputValue, setInputValue] = useState("");
-
-  // Handle input change
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  const { mode, toggleColorMode } = useThemeContext();
+  const { showPanel, setShowPanel } = useSidePanel();
 
   return (
     <Box
-      sx={{
-        width: { xs: "100%", sm: 320 }, // Adjust width on different screen sizes
-        margin: "auto",
+      sx={(theme) => ({
         padding: 3,
-        border: "1px solid #e0e0e0",
+        border: `2px solid ${theme.palette.border.main}`, // Using the border color from theme
         borderRadius: 4,
-        backgroundColor: "#fff",
+        backgroundColor: theme.palette.background.box, // Using background.paper from theme
         boxShadow: 2,
-      }}
+        height: "100%", // Make the SidePanel fill the parent's height
+        overflowY: "auto", // Enable scrolling for overflowing content
+      })}
     >
       {/* Header */}
       <Box
@@ -45,52 +44,84 @@ const SidePanel = () => {
         alignItems="center"
         mb={1}
       >
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+        <Typography variant="h6" sx={{ fontWeight: 300 }}>
           History
         </Typography>
         <Box>
-          <IconButton color="primary">
-            <NightsStayIcon />
+          <IconButton color="primary" onClick={toggleColorMode}>
+            <Moon color={mode === "light" ? "#000" : "#511956"} />
           </IconButton>
-          <IconButton>
-            <MoreVertIcon sx={{ fontSize: 30, color: "#171717" }} />
+          <IconButton onClick={() => setShowPanel(false)}>
+            <Element2 color={mode === "light" ? "#000" : "#FFF"} />
           </IconButton>
         </Box>
       </Box>
 
       {/* List of Questions with Input Field for First Item */}
       <List>
-        <ListItem button divider>
-          <TextField
-            value={inputValue}
-            onChange={handleInputChange}
-            label="If 3x + 5 = 17, what is the value of x..."
-            variant="outlined"
-            fullWidth
-            size="small"
-            sx={{ backgroundColor: "#f9f9f9", borderRadius: 1 }}
-          />
+        <ListItem
+          button
+          sx={(theme) => ({
+            color: theme.palette.text.secondary,
+            padding: theme.spacing(0.5),
+          })}
+        >
+          <Box
+            sx={(theme) => ({
+              borderRadius: 2,
+              paddingX: 2,
+              paddingY: 1.5, // Add padding for vertical spacing
+              ":hover": {
+                backgroundColor: theme.palette.background.input,
+              },
+              bgcolor: theme.palette.background.input, // Background color from theme
+              color: theme.palette.text.secondary, // Text color from theme
+              fontSize: "0.875rem", // Match TextField's typical font size
+            })}
+          >
+            If 3x + 5 = 17, what is the value of x...
+          </Box>
         </ListItem>
-        <ListItem button divider>
+        <ListItem
+          button
+          sx={(theme) => ({
+            color: theme.palette.text.secondary,
+            ":hover": {
+              backgroundColor: "transparent",
+            },
+            padding: theme.spacing(0.5), // Adjust padding for reduced spacing
+          })}
+        >
           <ListItemText primary="Simultaneous Equation Solving" />
         </ListItem>
-        <ListItem button divider>
+        <ListItem
+          button
+          sx={(theme) => ({
+            color: theme.palette.text.secondary,
+            ":hover": {
+              backgroundColor: "transparent",
+            },
+            padding: theme.spacing(0.5), // Adjust padding for reduced spacing
+          })}
+        >
           <ListItemText primary="Integer Help" />
         </ListItem>
-        <ListItem button>
+        <ListItem
+          button
+          sx={(theme) => ({
+            color: theme.palette.text.secondary,
+            ":hover": {
+              backgroundColor: "transparent",
+            },
+            padding: theme.spacing(0.5), // Adjust padding for reduced spacing
+          })}
+        >
           <ListItemText primary="Square Roots and Multipliers" />
         </ListItem>
       </List>
 
       {/* Card with Image */}
-      <Card
-        sx={{
-          position: "relative",
-          borderRadius: 4,
-          overflow: "hidden",
-          mt: 2,
-        }}
-      >
+      <Box sx={{ position: "relative" }}>
         <img
           src="/assets/Frame 47.png" // Replace with actual image URL
           alt="Math Master"
@@ -98,23 +129,32 @@ const SidePanel = () => {
         />
         <Button
           variant="contained"
-          sx={{
+          sx={(theme) => ({
             position: "absolute",
-            bottom: 16,
+            bottom: "50%",
             left: "50%",
             transform: "translateX(-50%)",
-            backgroundColor: "#fff",
-            color: "#000",
+            bgcolor: theme.palette.background.input,
+            color: theme.palette.text.primary,
             fontWeight: "bold",
-            "&:hover": { backgroundColor: "#f0f0f0" },
-          }}
+            opacity: 0.6,
+            borderRadius: 10,
+            paddingY: 2,
+            paddingX: 2, // Optional padding for horizontal spacing
+            whiteSpace: "nowrap", // Prevent text line break
+            display: "flex", // Use flexbox for positioning
+            alignItems: "center", // Vertically center the items
+            justifyContent: "center", // Horizontally center the items
+            textTransform: "none", // Ensure text is not uppercase
+          })}
         >
-          Play Math Master
+          <Game color={mode === "light" ? "#000" : "#fff"} />
+          <Typography variant="body1" component="div" sx={{ marginLeft: 1 }}>
+            Play Math Master
+          </Typography>
         </Button>
-      </Card>
+      </Box>
 
-      {/* Settings Section */}
-      <Divider sx={{ my: 2 }} />
       <Box display="flex" alignItems="center">
         <Avatar sx={{ bgcolor: "#ff5722", marginRight: 2 }}>D</Avatar>
         <Typography variant="body1" sx={{ flexGrow: 1, fontWeight: "bold" }}>

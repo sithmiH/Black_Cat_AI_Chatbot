@@ -28,6 +28,8 @@ export const getDesignTokens = (mode) => ({
             default: "#fff",
             paper: "#f5f5f5",
             button: "#313132",
+            box: "#fff",
+            input: "#FFFFFF",
           },
           border: {
             main: "#EAEAEA",
@@ -47,6 +49,8 @@ export const getDesignTokens = (mode) => ({
             default: "#141414",
             paper: "#1c1c1c",
             button: "#511956",
+            box: "#0C0C0C",
+            input: "#212121",
           },
           border: {
             main: "#2E2E2E",
