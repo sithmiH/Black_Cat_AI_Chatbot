@@ -52,7 +52,7 @@ const ChatScreen = () => {
         setMessages((prevMessages) => {
           const updatedMessages = [...prevMessages];
 
-          if (inputMessage.toLowerCase().includes("sri lanka")) {
+          if (inputMessage.toLowerCase().includes("12")) {
             const loadingIndex = updatedMessages.findIndex(
               (msg) => msg.type === "loading"
             );
@@ -62,8 +62,7 @@ const ChatScreen = () => {
             updatedMessages.push({
               type: "assistant",
               text: {
-                title:
-                  "The capital city of Sri Lanka is Sri Jayawardenepura Kotte.",
+                title: "The answer is 144",
               },
             });
           }
