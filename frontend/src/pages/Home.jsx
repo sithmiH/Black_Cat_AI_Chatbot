@@ -18,7 +18,6 @@ export const Home = () => {
       <Box
         sx={{
           // minHeight: "100vh",
-          bgcolor: "white",
           display: "flex",
           flexDirection: "column",
           paddingY: 4,
@@ -49,41 +48,25 @@ export const Home = () => {
         <Box
           sx={{
             position: "absolute",
-            right: 160,
+            right: 200,
             top: 145,
             width: "180px",
             height: "180px",
-            display: "flex",
+            display: { xs: "none", sm: "flex" },
             alignItems: "center",
             justifyContent: "center",
-            "&::before": {
-              content: '""',
-              position: "absolute",
-              width: "100%",
-              height: "100%",
-              background:
-                "radial-gradient(circle at center, rgba(0, 195, 255, 0.2) 0%, rgba(0, 195, 255, 0.1) 30%, transparent 70%)",
-              filter: "blur(30px)",
-              transform: "scale(1.4)",
-              zIndex: 0,
-              animation: "pulse 2s infinite",
-            },
-            "@keyframes pulse": {
-              "0%": {
-                opacity: 0.8,
-                transform: "scale(1.4)",
-              },
-              "50%": {
-                opacity: 0.6,
-                transform: "scale(1.5)",
-              },
-              "100%": {
-                opacity: 0.8,
-                transform: "scale(1.4)",
-              },
-            },
           }}
         >
+          <Box
+            component="img"
+            src="/assets/neon.svg"
+            alt="neon"
+            sx={{
+              position: "absolute",
+              width: "500px", // Smaller size for neon image
+              height: "auto", // Maintain aspect ratio
+            }}
+          />
           <Box
             component="img"
             src="/assets/download__4_-removebg-preview.png"

@@ -62,7 +62,11 @@ const Header = () => {
     <Box sx={{ display: "flex" }}>
       <AppBar
         component="nav"
-        sx={{ backgroundColor: "white", color: "black", boxShadow: "none" }}
+        sx={{
+          color: "black",
+          boxShadow: "none",
+        }}
+        color="transparent"
       >
         <Toolbar>
           <IconButton
@@ -97,6 +101,7 @@ const Header = () => {
             component="div"
             sx={{
               flexGrow: 1,
+              color: "primary",
               fontWeight: 1000, // Increased boldness for "Black Cat"
               fontFamily: "Outfit",
               display: { xs: "none", sm: "block" },
@@ -127,7 +132,7 @@ const Header = () => {
               <Button
                 key={item.name}
                 sx={{
-                  color: "black",
+                  color: "primary",
                   fontFamily: "Outfit", // Outfit font for navigation items
                   fontWeight: 400,
                   textTransform: "none",
@@ -141,8 +146,8 @@ const Header = () => {
             <Button
               variant="outlined"
               sx={{
-                borderColor: "black",
-                color: "black",
+                borderColor: "primary",
+                color: "primary",
                 borderRadius: "60px", // Rounded edges
                 borderWidth: "2px",
                 padding: "12px 18px", // Adjusted padding
