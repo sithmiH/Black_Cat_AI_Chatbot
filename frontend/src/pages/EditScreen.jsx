@@ -1,11 +1,11 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+
 import { Box, Typography, Paper, CircularProgress } from "@mui/material";
+import { Send } from "iconsax-react";
 
 import Prompt from "../components/Prompt";
 
-const ChatScreen = () => {
-    const navigate = useNavigate();
+const EditScreen = () => {
   return (
     <>
       {/* Chat Box Content */}
@@ -25,7 +25,7 @@ const ChatScreen = () => {
         {/* Chat Bubble for Expand */}
         <Box
           sx={{
-            width: 252, // Chat bubble width
+            width: 324, // Chat bubble width
             height: 50, // Chat bubble height
             bgcolor: "#EAEAEA", // Background color
             borderRadius: "50px 50px 0px 50px", // Rounded edges
@@ -41,14 +41,17 @@ const ChatScreen = () => {
             variant="body2"
             sx={{
               textAlign: "center",
+              marginLeft: 1, // Align response to the left
+              marginRight: "auto", // Ensure it's left-aligned
               fontSize: "14px",
-              color: "#000", // Black text color
+              color: "#313132", // Black text color
               paddingX: 2, // Add padding inside bubble
             }}
-            onClick={() => navigate("/chat/edit")} // Navigate to ChatScreen
           >
-            If 3x+5=17, what is the value of x?
-          </Typography>
+            Edit message
+          </Typography
+          >
+          <Send size={24} color="#313132" />
         </Box>
 
         {/* Response */}
@@ -209,4 +212,4 @@ const ChatScreen = () => {
   );
 };
 
-export default ChatScreen;
+export default EditScreen;

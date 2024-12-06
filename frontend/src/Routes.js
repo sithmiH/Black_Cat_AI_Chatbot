@@ -7,6 +7,7 @@ import { Login } from "./pages/Login";
 import MainLayout from "./components/layout/MainLayout";
 import ChatScreen from "./pages/ChatScreen";
 import ChatBoxLayout from "./components/layout/ChatBoxLayout";
+import EditScreen from "./pages/EditScreen";
 
 const privateRouter = createBrowserRouter([
   {
@@ -18,7 +19,10 @@ const privateRouter = createBrowserRouter([
       {
         path: "/chat",
         element: <ChatBoxLayout />,
-        children: [{ path: "/chat", element: <ChatScreen /> }],
+        children: [
+          { path: "/chat", element: <ChatScreen /> },
+          { path: "/chat/edit", element: <EditScreen /> },
+        ],
       },
     ],
   },
