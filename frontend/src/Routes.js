@@ -9,6 +9,7 @@ import ChatScreen from "./pages/ChatScreen";
 import ChatBoxLayout from "./components/layout/ChatBoxLayout";
 import LoginSignupLayout from "./components/layout/LoginSignupLayout";
 import Keyboard from "./pages/keyboard";
+import Voice from "./pages/Voice";
 
 const privateRouter = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const privateRouter = createBrowserRouter([
         path: "/",
         element: <ChatBoxLayout />,
         children: [{ path: "/keyboard", element: <Keyboard /> }],
+      },
+      {
+        path: "/",
+        element: <ChatBoxLayout />,
+        children: [{ path: "/voice", element: <Voice /> }],
       },
     ],
   },
