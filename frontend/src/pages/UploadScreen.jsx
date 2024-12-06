@@ -79,7 +79,7 @@ const ChatScreen = () => {
               paddingX: 2, // Add padding inside bubble
             }}
           >
-            If 3x+5=17, what is the value of x?
+            What is the answer ?
           </Typography>
         </Box>
 
