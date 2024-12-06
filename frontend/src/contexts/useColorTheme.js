@@ -3,10 +3,14 @@ import React from "react";
 import { getDesignTokens } from "./theme";
 
 export const useColorTheme = () => {
-  const [mode, setMode] = React.useState("light");
+  const savedMode = localStorage.getItem("themeMode") || "light";
+  const [mode, setMode] = React.useState(savedMode);
 
-  const toggleColorMode = () =>
-    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
+  const toggleColorMode = () => {
+    const newMode = mode === "light" ? "dark" : "light";
+    setMode(newMode);
+    localStorage.setItem("themeMode", newMode);
+  };
 
   // const modifiedTheme = React.useMemo(
   //   () =>
