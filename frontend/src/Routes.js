@@ -11,6 +11,7 @@ import UploadScreen from "./pages/UploadScreen";
 import LoginSignupLayout from "./components/layout/LoginSignupLayout";
 import GraphGenerate from "./pages/GraphGenerate";
 import EditScreen from "./pages/EditScreen";
+import Keyboard from "./pages/keyboard";
 
 const privateRouter = createBrowserRouter([
   {
@@ -28,6 +29,11 @@ const privateRouter = createBrowserRouter([
           { path: "/chat/GraphGenerate", element: <GraphGenerate /> },
           { path: "/chat/edit", element: <EditScreen /> },
         ],
+      },
+      {
+        path: "/",
+        element: <ChatBoxLayout />,
+        children: [{ path: "/keyboard", element: <Keyboard /> }],
       },
     ],
   },

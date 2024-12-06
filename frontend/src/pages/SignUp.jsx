@@ -118,6 +118,7 @@ const Signup = () => {
             }}
           >
             <Divider sx={{ flex: 1 }} />
+
             <Box
               sx={{
                 width: 40,
@@ -142,7 +143,30 @@ const Signup = () => {
             <Divider sx={{ flex: 1 }} />
           </Box>
 
-          {/* Email and Password Login */}
+          {/* Sign Up with a New Account Button */}
+          <Button
+            variant="outlined"
+            sx={{
+              mb: 2,
+              alignSelf: "center",
+              borderRadius: "100px",
+              borderColor: "#D6D6D7",
+              color: "black",
+              height: "40px",
+              width: "100%",
+              padding: "10px 12px",
+              textTransform: "capitalize",
+              backgroundColor: "#E7E7E8", // Set the background color
+              marginBottom: 2,
+              "&:hover": {
+                backgroundColor: "#D6D6D7", // Slightly darker shade on hover
+              },
+            }}
+          >
+            Sign Up with a New Account
+          </Button>
+
+          {/* Email and Password Fields */}
           <TextField
             fullWidth
             label="Email"
@@ -152,11 +176,10 @@ const Signup = () => {
             sx={{
               mb: 2,
               "& .MuiOutlinedInput-root": {
-                borderRadius: "100px", // Rounded corners
+                borderRadius: "100px",
               },
             }}
           />
-
           <TextField
             fullWidth
             label="Password"
@@ -166,7 +189,7 @@ const Signup = () => {
             sx={{
               mb: 2,
               "& .MuiOutlinedInput-root": {
-                borderRadius: "100px", // Rounded corners
+                borderRadius: "100px",
               },
             }}
           />
@@ -207,7 +230,7 @@ const Signup = () => {
                 textTransform: "capitalize",
               }}
             >
-              Login
+              Sign Up
             </Button>
           </Box>
 
@@ -215,9 +238,9 @@ const Signup = () => {
             variant="body2"
             sx={{ textAlign: "center", fontSize: 16 }}
           >
-            Need an account?{" "}
+            Already have an account?{" "}
             <a
-              href="#"
+              href="/login"
               style={{
                 textDecoration: "none",
                 fontSize: 14,
@@ -226,7 +249,7 @@ const Signup = () => {
                 textDecoration: "underline",
               }}
             >
-              Sign Up
+              Login
             </a>
           </Typography>
         </Box>
