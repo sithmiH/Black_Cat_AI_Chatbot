@@ -13,7 +13,8 @@ import GraphGenerate from "./pages/GraphGenerate";
 import EditScreen from "./pages/EditScreen";
 import Keyboard from "./pages/keyboard";
 import Voice from "./pages/Voice";
-
+import GraphCreate from "./pages/GraphCreate";
+import { MagicPen } from "./pages/MagicPen";
 const privateRouter = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,16 @@ const privateRouter = createBrowserRouter([
         path: "/",
         element: <ChatBoxLayout />,
         children: [{ path: "/voice", element: <Voice /> }],
+      },
+      {
+        path: "/",
+        element: <ChatBoxLayout />,
+        children: [{ path: "/graphCreate", element: <GraphCreate /> }],
+      },
+      {
+        path: "/",
+        element: <ChatBoxLayout />,
+        children: [{ path: "/magicPen", element: <MagicPen /> }],
       },
     ],
   },
