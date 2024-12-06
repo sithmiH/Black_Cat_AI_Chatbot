@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Box, TextField, IconButton } from "@mui/material";
 import SendIcon from "@mui/icons-material/SendRounded";
 import StopIcon from "@mui/icons-material/StopCircleOutlined";
+import { useThemeContext } from "../contexts/themeContext";
 import { Magicpen, Keyboard, AttachCircle, Microphone2 } from "iconsax-react";
 
 const Prompt = () => {
+  const { mode } = useThemeContext();
   const [inputMessage, setInputMessage] = useState("");
 
   const handleSendMessage = () => {
@@ -16,18 +18,20 @@ const Prompt = () => {
 
   return (
     <Box
-      sx={{
+      sx={(theme) => ({
         display: "flex",
         alignItems: "center",
-        backgroundColor: "#F6F6F6",
+        bgcolor: theme.palette.background.chatInput,
         borderRadius: "24px",
         justifyContent: "space-between",
         padding: 2,
         marginY: 6,
-      }}
+      })}
     >
       <IconButton>
-        <StopIcon sx={{ fontSize: 42, color: "#000" }} />
+        <StopIcon
+          sx={{ fontSize: 42, color: mode === "light" ? "#000" : "#FFF" }}
+        />
       </IconButton>
 
       <TextField

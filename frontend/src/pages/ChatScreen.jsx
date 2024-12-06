@@ -5,44 +5,43 @@ import { Box, Typography, Paper, CircularProgress } from "@mui/material";
 import Prompt from "../components/Prompt";
 
 const ChatScreen = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       {/* Chat Box Content */}
       <Box
-        sx={{
-          bgcolor: "white",
+        sx={(theme) => ({
+          bgcolor: theme.palette.background.chat,
           borderRadius: "16px",
           boxShadow: 0,
-          border: "2px solid #EAEAEA",
+          // border: "2px solid #EAEAEA",
+          border: `2px solid ${theme.palette.border.main}`,
           padding: 3,
           display: "flex",
           flexDirection: "column",
           overflowY: "auto", // Ensure content inside can scroll
-        }}
+        })}
       >
         {/* Question */}
         {/* Chat Bubble for Expand */}
         <Box
-          sx={{
+          sx={(theme) => ({
             width: 252, // Chat bubble width
             height: 50, // Chat bubble height
-            bgcolor: "#EAEAEA", // Background color
+            bgcolor: theme.palette.background.input,
             borderRadius: "50px 50px 0px 50px", // Rounded edges
-            border: "2px solid #FFFFFF", // Border with white color
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             mt: 1, // Margin on top for spacing
             ml: "auto", // Align bubble to the right
-          }}
+          })}
         >
           <Typography
             variant="body2"
             sx={{
               textAlign: "center",
               fontSize: "14px",
-              color: "#000", // Black text color
               paddingX: 2, // Add padding inside bubble
             }}
             onClick={() => navigate("/chat/edit")} // Navigate to ChatScreen
@@ -62,15 +61,14 @@ const ChatScreen = () => {
             marginLeft: 0, // Align response to the left
             marginRight: "auto", // Ensure it's left-aligned
             width: 300, // Set bubble width
-            bgcolor: "#FFFFFF", // Background color for consistency
+            bgcolor: "transparent",
             borderRadius: "50px 50px 50px 0px", // Rounded edges with flat left
-            border: "2px solid #FFFFFF", // White border
             wordWrap: "break-word",
           }}
         >
           <Typography
             variant="body1"
-            sx={{ mt: 2, fontWeight: "bold", fontSize: "16px" }}
+            sx={{ mt: 2, fontWeight: "Bold", fontSize: "16px" }}
           >
             To solve the equation 3x+5=17, follow these steps:
           </Typography>
@@ -129,25 +127,23 @@ const ChatScreen = () => {
 
         {/* Chat Bubble for Expand */}
         <Box
-          sx={{
+          sx={(theme) => ({
             width: 249, // Chat bubble width
             height: 50, // Chat bubble height
-            bgcolor: "#EAEAEA", // Background color
+            bgcolor: theme.palette.background.input,
             borderRadius: "50px 50px 0px 50px", // Rounded edges
-            border: "2px solid #FFFFFF", // Border with white color
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             mt: 1, // Margin on top for spacing
             ml: "auto", // Align bubble to the right
-          }}
+          })}
         >
           <Typography
             variant="body2"
             sx={{
               textAlign: "center",
               fontSize: "14px",
-              color: "#000", // Black text color
               paddingX: 2, // Add padding inside bubble
             }}
           >
@@ -158,8 +154,8 @@ const ChatScreen = () => {
         {/* Left Chat Bubble */}
 
         <Box
-          sx={{
-            bgcolor: "#FFFFFF", // Background color
+          sx={(theme) => ({
+            bgcolor: theme.palette.background.chat,
             borderRadius: "50px 50px 50px 0px", // Rounded edges with flat edge on the left
             border: "2px solid #EAEAEA", // Border with white color
             display: "flex",
@@ -168,7 +164,7 @@ const ChatScreen = () => {
             justifyContent: "center",
             mt: 1, // Margin on top for spacing
             mr: "auto", // Align bubble to the left
-          }}
+          })}
         >
           <Box
             sx={{
@@ -181,10 +177,10 @@ const ChatScreen = () => {
           >
             <Typography
               variant="body2"
+              color="#BABABA"
               sx={{
                 textAlign: "center",
                 fontSize: "14px",
-                color: "#EAEAEA", // Black text color
                 paddingX: 2, // Add padding inside bubble
               }}
             >

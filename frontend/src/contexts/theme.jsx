@@ -30,6 +30,8 @@ export const getDesignTokens = (mode) => ({
             button: "#313132",
             box: "#fff",
             input: "#FFFFFF",
+            chat: "#FFF",
+            chatInput: "#F6F6F6",
           },
           border: {
             main: "#EAEAEA",
@@ -51,6 +53,8 @@ export const getDesignTokens = (mode) => ({
             button: "#511956",
             box: "#0C0C0C",
             input: "#212121",
+            chat: "#080808",
+            chatInput: "#080808",
           },
           border: {
             main: "#2E2E2E",
