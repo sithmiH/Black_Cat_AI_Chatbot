@@ -8,7 +8,6 @@ import {
   TextField,
   CircularProgress,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import SendIcon from "@mui/icons-material/Send";
 import Divider from "@mui/material/Divider";
 import ArticleIcon from "@mui/icons-material/Article";

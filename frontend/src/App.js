@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import privateRouter from "./Routes";
-import { BrowserRouter, Router, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { useThemeContext } from "./contexts/themeContext";
 import { styled } from "@mui/material/styles";

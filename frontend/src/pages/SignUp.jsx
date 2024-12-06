@@ -190,12 +190,11 @@ const Signup = () => {
 
           <Typography variant="body2" sx={{ textAlign: "left", mb: 2 }}>
             <a
-              href="#"
+              href="/"
               style={{
                 textDecoration: "none",
                 color: "black",
                 fontSize: 12,
-                textDecoration: "underline",
               }}
             >
               Forgot your Password?
@@ -238,9 +237,7 @@ const Signup = () => {
               style={{
                 textDecoration: "none",
                 fontSize: 14,
-                color: "black",
                 fontWeight: "bold",
-                textDecoration: "underline",
                 color: mode === "light" ? "#000" : "#FFF",
               }}
             >
