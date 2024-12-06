@@ -121,7 +121,7 @@ export const Home = () => {
                   <Grid item xs={12} sm={6} key={index}>
                     <Paper
                       elevation={0}
-                      sx={{
+                      sx={(theme) => ({
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -131,8 +131,8 @@ export const Home = () => {
                         px: 3, // Horizontal padding
                         py: 1, // Vertical padding
                         ":hover": { boxShadow: 4 },
-                        border: "2px solid #EAEAEA",
-                      }}
+                        border: `2px solid ${theme.palette.border.main}`,
+                      })}
                     >
                       <Typography
                         variant="body2"
@@ -158,7 +158,7 @@ export const Home = () => {
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <Paper
                   elevation={0}
-                  sx={{
+                  sx={(theme) => ({
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -168,11 +168,11 @@ export const Home = () => {
                     px: 3, // Horizontal padding
                     py: 1, // Vertical padding
                     ":hover": { boxShadow: 4 },
-                    border: "2px solid #EAEAEA",
+                    border: `2px solid ${theme.palette.border.main}`,
                     maxWidth: "auto", // Make the width responsive to text
                     width: "auto", // Let the box width adjust to the text size
                     minWidth: 0, // Prevent any fixed min width
-                  }}
+                  })}
                 >
                   <Typography
                     variant="body2"
@@ -199,13 +199,13 @@ export const Home = () => {
             />
           </IconButton>
           <IconButton>
-            <Keyboard color="#000" />
+            <Keyboard color={mode === "light" ? "#000" : "#EAEAEA"} />
           </IconButton>
           <IconButton>
-            <AttachCircle color="#000" />
+            <AttachCircle color={mode === "light" ? "#000" : "#EAEAEA"} />
           </IconButton>
           <IconButton>
-            <Microphone2 color="#000" />
+            <Microphone2 color={mode === "light" ? "#000" : "#EAEAEA"} />
           </IconButton>
         </Box>
 
@@ -216,7 +216,7 @@ export const Home = () => {
             color="primary"
             size="small"
             sx={{
-              bgcolor: "#313132", // Primary black color
+              bgcolor: (theme) => theme.palette.background.button,
               color: "white", // White text color
               borderRadius: 30, // Rounded corners
               px: 4, // Horizontal padding

@@ -27,6 +27,10 @@ export const getDesignTokens = (mode) => ({
           background: {
             default: "#fff",
             paper: "#f5f5f5",
+            button: "#313132",
+          },
+          border: {
+            main: "#EAEAEA",
           },
           text: {
             primary: "#000",
@@ -39,10 +43,13 @@ export const getDesignTokens = (mode) => ({
             main: "#fff", // Main property for the primary color
           },
           divider: deepOrange[700],
-          border: "#2E2E2E",
           background: {
             default: "#141414",
             paper: "#1c1c1c",
+            button: "#511956",
+          },
+          border: {
+            main: "#2E2E2E",
           },
           text: {
             primary: "#fff",
