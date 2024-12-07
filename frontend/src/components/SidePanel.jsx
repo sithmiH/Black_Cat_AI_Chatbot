@@ -16,8 +16,10 @@ import { Element2 } from "iconsax-react";
 import { useThemeContext } from "../contexts/themeContext";
 import { Game } from "iconsax-react";
 import { useSidePanel } from "./layout/ChatBoxLayout";
+import { useNavigate } from "react-router-dom";
 
 const SidePanel = () => {
+  const navigate = useNavigate();
   // State for managing the input field value
   const { mode, toggleColorMode } = useThemeContext();
   const { setShowPanel } = useSidePanel();
@@ -144,6 +146,7 @@ const SidePanel = () => {
             justifyContent: "center", // Horizontally center the items
             textTransform: "none", // Ensure text is not uppercase
           })}
+          onClick={() => navigate("/")}
         >
           <Game color={mode === "light" ? "#000" : "#fff"} />
           <Typography variant="body1" component="div" sx={{ marginLeft: 1 }}>
