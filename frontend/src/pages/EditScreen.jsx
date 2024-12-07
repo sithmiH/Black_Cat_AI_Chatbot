@@ -11,23 +11,25 @@ import { Send } from "iconsax-react";
 
 import Prompt from "../components/Prompt";
 import { useNavigate } from "react-router-dom";
+import { useThemeContext } from "../contexts/themeContext";
 
 const EditScreen = () => {
+  const { mode } = useThemeContext();
   const navigate = useNavigate();
   return (
     <>
       {/* Chat Box Content */}
       <Box
-        sx={{
-          bgcolor: "white",
+        sx={(theme) => ({
+          bgcolor: theme.palette.background.chat,
+          border: `2px solid ${theme.palette.border.main}`,
           borderRadius: "16px",
           boxShadow: 0,
-          border: "2px solid #EAEAEA",
           padding: 3,
           display: "flex",
           flexDirection: "column",
-          overflowY: "auto", // Ensure content inside can scroll
-        }}
+          overflowY: "auto",
+        })}
       >
         {/* Question */}
         {/* Chat Bubble for Expand */}
@@ -35,9 +37,8 @@ const EditScreen = () => {
           sx={{
             width: 324, // Chat bubble width
             height: 50, // Chat bubble height
-            bgcolor: "#EAEAEA", // Background color
+            bgcolor: (theme) => theme.palette.background.chatBubble,
             borderRadius: "50px 50px 0px 50px", // Rounded edges
-            border: "2px solid #FFFFFF", // Border with white color
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -52,14 +53,13 @@ const EditScreen = () => {
               marginLeft: 1, // Align response to the left
               marginRight: "auto", // Ensure it's left-aligned
               fontSize: "14px",
-              color: "#313132", // Black text color
               paddingX: 2, // Add padding inside bubble
             }}
           >
             Edit message
           </Typography>
           <IconButton onClick={() => navigate("/chat/GraphGenerate")}>
-            <Send size={24} color="#313132" />
+            <Send size={24} color={mode === "light" ? "#313132" : "#FFF"} />
           </IconButton>
         </Box>
 
@@ -74,9 +74,8 @@ const EditScreen = () => {
             marginLeft: 0, // Align response to the left
             marginRight: "auto", // Ensure it's left-aligned
             width: 300, // Set bubble width
-            bgcolor: "#FFFFFF", // Background color for consistency
+            bgcolor: "transparent",
             borderRadius: "50px 50px 50px 0px", // Rounded edges with flat left
-            border: "2px solid #FFFFFF", // White border
             wordWrap: "break-word",
           }}
         >
@@ -144,9 +143,8 @@ const EditScreen = () => {
           sx={{
             width: 249, // Chat bubble width
             height: 50, // Chat bubble height
-            bgcolor: "#EAEAEA", // Background color
+            bgcolor: (theme) => theme.palette.background.chatBubble,
             borderRadius: "50px 50px 0px 50px", // Rounded edges
-            border: "2px solid #FFFFFF", // Border with white color
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -159,7 +157,6 @@ const EditScreen = () => {
             sx={{
               textAlign: "center",
               fontSize: "14px",
-              color: "#000", // Black text color
               paddingX: 2, // Add padding inside bubble
             }}
           >
@@ -171,7 +168,7 @@ const EditScreen = () => {
 
         <Box
           sx={{
-            bgcolor: "#FFFFFF", // Background color
+            bgcolor: (theme) => theme.palette.background.chat,
             borderRadius: "50px 50px 50px 0px", // Rounded edges with flat edge on the left
             border: "2px solid #EAEAEA", // Border with white color
             display: "flex",
@@ -196,7 +193,6 @@ const EditScreen = () => {
               sx={{
                 textAlign: "center",
                 fontSize: "14px",
-                color: "#EAEAEA", // Black text color
                 paddingX: 2, // Add padding inside bubble
               }}
             >

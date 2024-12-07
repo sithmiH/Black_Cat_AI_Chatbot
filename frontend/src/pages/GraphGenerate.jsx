@@ -9,16 +9,16 @@ const ChatScreen = () => {
     <>
       {/* Chat Box Content */}
       <Box
-        sx={{
-          bgcolor: "white",
+        sx={(theme) => ({
+          bgcolor: theme.palette.background.chat,
           borderRadius: "16px",
           boxShadow: 0,
-          border: "2px solid #EAEAEA",
+          border: `2px solid ${theme.palette.border.main}`,
           padding: 3,
           display: "flex",
           flexDirection: "column",
-          overflowY: "auto", // Ensure content inside can scroll
-        }}
+          overflowY: "auto",
+        })}
       >
         {/* Question */}
         {/* Chat Bubble for Expand */}
@@ -27,9 +27,8 @@ const ChatScreen = () => {
             width: "100%", // Use full width of the parent container
             maxWidth: 700, // Set a maximum width for the chat bubble
             height: "auto", // Adjust height based on content
-            bgcolor: "#EAEAEA",
+            bgcolor: (theme) => theme.palette.background.chatBubble,
             borderRadius: "25px", // Rounded edges for a smoother look
-            border: "2px solid #FFFFFF",
             display: "flex",
             flexDirection: "column", // Align text vertically
             justifyContent: "center",
@@ -44,7 +43,6 @@ const ChatScreen = () => {
             sx={{
               textAlign: "center",
               fontSize: "16px", // Slightly larger text for readability
-              color: "#333", // Darker text color for contrast
               lineHeight: 1.4, // Add some line spacing for readability
             }}
           >
@@ -67,9 +65,8 @@ const ChatScreen = () => {
             marginLeft: 0,
             marginRight: "auto",
             width: 300, // Adjust width for image
-            bgcolor: "#FFFFFF", // Background color
+            bgcolor: "transparent", // Background color
             borderRadius: "50px 50px 50px 0px", // Rounded edges
-            border: "2px solid #FFFFFF", // White border
           }}
         >
           <img
@@ -87,9 +84,8 @@ const ChatScreen = () => {
           sx={{
             width: 249, // Chat bubble width
             height: 50, // Chat bubble height
-            bgcolor: "#EAEAEA", // Background color
+            bgcolor: (theme) => theme.palette.background.chatBubble,
             borderRadius: "50px 50px 0px 50px", // Rounded edges
-            border: "2px solid #FFFFFF", // Border with white color
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -102,7 +98,6 @@ const ChatScreen = () => {
             sx={{
               textAlign: "center",
               fontSize: "14px",
-              color: "#000", // Black text color
               paddingX: 2, // Add padding inside bubble
             }}
           >
@@ -114,7 +109,7 @@ const ChatScreen = () => {
 
         <Box
           sx={{
-            bgcolor: "#FFFFFF", // Background color
+            bgcolor: (theme) => theme.palette.background.chat,
             borderRadius: "50px 50px 50px 0px", // Rounded edges with flat edge on the left
             border: "2px solid #EAEAEA", // Border with white color
             display: "flex",

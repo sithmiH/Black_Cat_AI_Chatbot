@@ -17,7 +17,9 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import CropIcon from "@mui/icons-material/Crop";
 import AdsClickIcon from "@mui/icons-material/AdsClick";
 import GestureIcon from "@mui/icons-material/Gesture";
+import { useThemeContext } from "../contexts/themeContext";
 export default function GraphCreate() {
+  const { mode } = useThemeContext();
   const data = [
     {
       id: "data-0",
@@ -189,11 +191,11 @@ export default function GraphCreate() {
   return (
     <>
       <Box
-        sx={{
-          bgcolor: "white",
+        sx={(theme) => ({
+          bgcolor: theme.palette.background.chat,
+          border: `2px solid ${theme.palette.border.main}`,
           borderRadius: "16px",
           boxShadow: 0,
-          border: "2px solid #EAEAEA",
           padding: 3,
           marginBottom: 3,
           display: "flex",
@@ -201,13 +203,12 @@ export default function GraphCreate() {
           flexDirection: "column",
           overflowY: "auto", // Ensure content inside can scroll
           //   backgroundColor: "yellow",
-        }}
+        })}
       >
         <Box
           sx={{
-            bgcolor: "#EAEAEA", // Background color
+            bgcolor: (theme) => theme.palette.background.chatBubble,
             borderRadius: "50px 50px 0px 50px", // Rounded edges
-            border: "2px solid #FFFFFF", // Border with white color
             display: "flex",
             alignItems: "left",
             justifyContent: "center",
@@ -221,7 +222,6 @@ export default function GraphCreate() {
             sx={{
               textAlign: "left",
               fontSize: "14px",
-              color: "#000", // Black text color
               paddingX: 5, // Add padding inside bubble
               margin: 2,
             }}
@@ -268,10 +268,10 @@ export default function GraphCreate() {
           justifyContent: "space-between",
           alignItems: "center",
           padding: 1,
+          bgcolor: (theme) => theme.palette.background.chat,
           borderRadius: "12px",
           boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
           marginBottom: "100px",
-          backgroundColor: "#E7E7E8", // Set the background color
         }}
       >
         {/* Icons Section */}
@@ -303,7 +303,7 @@ export default function GraphCreate() {
         />
         <Box
           sx={{
-            backgroundColor: "white",
+            bgcolor: (theme) => theme.palette.background.default,
             width: "90%",
             borderRadius: "8px",
             margin: 1,
@@ -325,7 +325,7 @@ export default function GraphCreate() {
             </IconButton>
             <IconButton
               sx={{
-                color: "black", // Set the color of the icon
+                color: mode === "light" ? "black" : "white", // Set the color of the icon
               }}
             >
               <ScatterPlotIcon />
@@ -348,7 +348,7 @@ export default function GraphCreate() {
               width: "fit-content",
               margin: "auto",
               padding: 1,
-              backgroundColor: "white",
+              backgroundColor: "transparent",
               borderRadius: 2,
             }}
           >

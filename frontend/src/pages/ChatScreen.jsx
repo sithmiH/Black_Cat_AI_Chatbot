@@ -181,7 +181,7 @@ const ChatScreen = () => {
               <Box
                 key={index}
                 sx={(theme) => ({
-                  bgcolor: theme.palette.background.chat,
+                  bgcolor: (theme) => theme.palette.background.chat,
                   borderRadius: "50px 50px 50px 0px",
                   border: "2px solid #EAEAEA",
                   display: "flex",

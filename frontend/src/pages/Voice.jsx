@@ -5,9 +5,11 @@ import SendIcon from "@mui/icons-material/SendRounded";
 import StopIcon from "@mui/icons-material/StopCircleOutlined";
 import { Magicpen, Keyboard, AttachCircle, Microphone2 } from "iconsax-react";
 import { useNavigate } from "react-router-dom";
+import { useThemeContext } from "../contexts/themeContext";
 
 const Voice = () => {
   const navigate = useNavigate();
+  const { mode } = useThemeContext();
   const [inputMessage, setInputMessage] = useState("");
 
   const handleSendMessage = () => {
@@ -21,21 +23,21 @@ const Voice = () => {
     <>
       {/* Chat Screen */}
       <Box
-        sx={{
-          backgroundColor: "#FFFFFF",
-          border: "1px solid #EAEAEA",
+        sx={(theme) => ({
+          bgcolor: theme.palette.background.chat,
+          border: `2px solid ${theme.palette.border.main}`,
           borderRadius: "16px",
           padding: 2,
           overflowY: "auto",
           height: "calc(100vh - 120px)", // Adjust height for the prompt section
           marginBottom: 2,
-        }}
+        })}
       >
         {/* User's Voice Message */}
         <Box
           sx={{
             width: 252, // Chat bubble width
-            bgcolor: "#EAEAEA",
+            bgcolor: (theme) => theme.palette.background.chatBubble,
             borderRadius: "50px 50px 0px 50px",
             display: "flex",
             alignItems: "center",
@@ -45,7 +47,9 @@ const Voice = () => {
             padding: "10px 16px",
           }}
         >
-          <PlayCircleIcon sx={{ fontSize: 24, color: "#000" }} />
+          <PlayCircleIcon
+            sx={{ fontSize: 24, color: mode === "light" ? "#000" : "#FFF" }}
+          />
           <Box
             sx={{
               display: "flex",
@@ -61,7 +65,7 @@ const Voice = () => {
                 sx={{
                   width: 2,
                   height: Math.random() * 15 + 5,
-                  bgcolor: "#000",
+                  bgcolor: (theme) => theme.palette.primary.main,
                   borderRadius: 1,
                 }}
               />
@@ -86,7 +90,6 @@ const Voice = () => {
             width: 252, // Chat bubble width
             bgcolor: (theme) => theme.palette.background.paper,
             borderRadius: "50px 50px 50px 0px", // Rounded edges
-            border: "2px solid #EAEAEA", // Border with white color
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -95,7 +98,9 @@ const Voice = () => {
             padding: "10px 16px",
           }}
         >
-          <PlayCircleIcon sx={{ fontSize: 24, color: "#000" }} />
+          <PlayCircleIcon
+            sx={{ fontSize: 24, color: mode === "light" ? "#000" : "#FFF" }}
+          />
           <Box
             sx={{
               display: "flex",
@@ -111,7 +116,7 @@ const Voice = () => {
                 sx={{
                   width: 2,
                   height: Math.random() * 15 + 5,
-                  bgcolor: "#000",
+                  bgcolor: (theme) => theme.palette.primary.main,
                   borderRadius: 1,
                 }}
               />
@@ -154,7 +159,7 @@ const Voice = () => {
           sx={{
             width: 171,
             height: 56,
-            bgcolor: "rgba(49, 49, 50, 0.06)",
+            bgcolor: (theme) => theme.palette.background.chat,
             borderRadius: "50px 50px 50px 0px",
             border: "2px solid #EAEAEA",
             display: "flex",
@@ -169,7 +174,6 @@ const Voice = () => {
             sx={{
               textAlign: "center",
               fontSize: "14px",
-              color: "#BABABA",
               paddingX: 2,
             }}
           >
@@ -184,17 +188,19 @@ const Voice = () => {
 
       {/* Prompt Section with Extended Voice Wave */}
       <Box
-        sx={{
+        sx={(theme) => ({
           display: "flex",
           alignItems: "center",
-          backgroundColor: "#F6F6F6",
+          bgcolor: theme.palette.background.chatInput,
           borderRadius: "24px",
           justifyContent: "space-between",
           padding: 2,
-        }}
+        })}
       >
         <IconButton>
-          <StopIcon sx={{ fontSize: 42, color: "#000" }} />
+          <StopIcon
+            sx={{ fontSize: 42, color: mode === "light" ? "#000" : "#FFF" }}
+          />
         </IconButton>
 
         {/* Extended Voice Wave */}
@@ -213,7 +219,7 @@ const Voice = () => {
               sx={{
                 width: 4,
                 height: Math.random() * 30 + 5, // Increased height range for more variation
-                bgcolor: "#000",
+                bgcolor: (theme) => theme.palette.primary.main,
                 borderRadius: 1,
               }}
             />
@@ -232,8 +238,8 @@ const Voice = () => {
           </IconButton>
 
           {/* Updated Microphone Icon with Black Color */}
-          <IconButton sx={{ color: "#000" }}>
-            <Microphone2 color="#000" />
+          <IconButton sx={{ color: mode === "light" ? "#000" : "#D4D4D4" }}>
+            <Microphone2 color={mode === "light" ? "#000" : "#D4D4D4"} />
           </IconButton>
 
           <IconButton color="primary" onClick={handleSendMessage}>

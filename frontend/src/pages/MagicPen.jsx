@@ -9,11 +9,11 @@ export const MagicPen = () => {
   return (
     <>
       <Box
-        sx={{
-          bgcolor: "white",
+        sx={(theme) => ({
+          bgcolor: theme.palette.background.chat,
+          border: `2px solid ${theme.palette.border.main}`,
           borderRadius: "16px",
           boxShadow: 0,
-          border: "2px solid #EAEAEA",
           padding: 3,
           marginBottom: 3,
           display: "flex",
@@ -21,18 +21,17 @@ export const MagicPen = () => {
           flexDirection: "column",
           overflowY: "auto", // Ensure content inside can scroll
           // backgroundColor: "yellow",
-        }}
+        })}
       >
         <Box
           sx={{
-            width: "auto",
-            height: 50, // Chat bubble height
-            bgcolor: "rgba(49, 49, 50, 0.06)", // #313132 with 6% opacity
+            bgcolor: (theme) => theme.palette.background.chat,
             borderRadius: "50px 50px 50px 0px",
             border: "2px solid #EAEAEA", // Border with white color
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            padding: 2,
             mt: 1, // Margin on top for spacing
             mr: "auto", // Align bubble to the left
           }}
@@ -62,7 +61,7 @@ export const MagicPen = () => {
           borderRadius: "12px",
           boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)",
           marginBottom: "100px",
-          backgroundColor: "#E7E7E8",
+          bgcolor: (theme) => theme.palette.background.chat,
           //   backgroundColor: "green",
         }}
       >
@@ -87,7 +86,7 @@ export const MagicPen = () => {
         <Divider sx={{ width: "auto", marginY: 1, marginX: 2 }} />
         <Box
           sx={{
-            backgroundColor: "white",
+            bgcolor: (theme) => theme.palette.background.default,
             width: "90%",
             borderRadius: "8px",
             margin: 2,
@@ -95,6 +94,7 @@ export const MagicPen = () => {
         >
           <Box
             sx={{
+              bgcolor: (theme) => theme.palette.background.default,
               backgroundImage: `url(${MagicPenimage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
