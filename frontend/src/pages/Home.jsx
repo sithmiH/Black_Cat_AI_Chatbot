@@ -136,6 +136,7 @@ export const Home = () => {
                         bgcolor: theme.palette.background.default,
                         border: `2px solid ${theme.palette.border.main}`,
                       })}
+                      onClick={() => navigate("/chat")}
                     >
                       <Typography
                         variant="body2"
